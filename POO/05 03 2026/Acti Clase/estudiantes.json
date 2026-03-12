@@ -1,0 +1,33 @@
+[
+    {
+        "documento": 11,
+        "nombre": "Maria",
+        "edad": 23,
+        "promedio": 4.2,
+        "deportes": [
+            "Minitejo",
+            "Futbol"
+        ]
+    },
+    {
+        "documento": 12,
+        "nombre": "Pedro",
+        "edad": 21,
+        "promedio": 3.9,
+        "deportes": [
+            "Tejo",
+            "Futbol",
+            "Tenis de Mesa"
+        ]
+    },
+    {
+        "documento": 13,
+        "nombre": "Sara",
+        "edad": 18,
+        "promedio": 4.4,
+        "deportes": [
+            "Voleybol",
+            "Basquetbol"
+        ]
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "estudiante": "Carlos",
+        "materia": "Matematicas",
+        "nota": 85.0
+    },
+    {
+        "estudiante": "Laura",
+        "materia": "Historia",
+        "nota": 90.0
+    },
+    {
+        "estudiante": "Miguel",
+        "materia": "Fisica",
+        "nota": 78.0
+    },
+    {
+        "estudiante": "Ana",
+        "materia": "Quimica",
+        "nota": 88.0
+    },
+    {
+        "estudiante": "Sofia",
+        "materia": "Biologia",
+        "nota": 92.0
+    },
+    {
+        "estudiante": "kevin",
+        "materia": "Mate",
+        "nota": 50.0
+    },
+    {
+        "estudiante": "Kevin",
+        "materia": "Mate",
+        "nota": 5.0
+    }
+]

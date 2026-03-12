@@ -1,0 +1,14 @@
+[
+    {
+        "nombre":"Mariana Pajón",
+        "edad":34,
+        "deporte":"BMX",
+        "ciudad_residencia":"Medellín"
+    },
+    {
+        "nombre":"Carlos Alberto Ramírez",
+        "edad":31,
+        "deporte":"BMX",
+        "ciudad_residencia":"Medellín"
+    }
+]

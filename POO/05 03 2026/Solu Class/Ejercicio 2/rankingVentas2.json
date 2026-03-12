@@ -1,0 +1,22 @@
+[
+    {
+        "vendedor":"Pedro",
+        "ventas":17250
+    },
+    {
+        "vendedor":"Ana",
+        "ventas":15850
+    },
+    {
+        "vendedor":"Carlos",
+        "ventas":15050
+    },
+    {
+        "vendedor":"Laura",
+        "ventas":13550
+    },
+    {
+        "vendedor":"Juan",
+        "ventas":11650
+    }
+]
