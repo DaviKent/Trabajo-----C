@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MI PRIMERA PAGINA WEB</title>
+</head>
+<body>
+    <h5>Tecnologo En Analisis Y Desarrollo De Software</h5>
+    <p>Texto de parrafo.....</p>
+       
+    <div id="textoDiv1">
+        Texto Inicial
+    </div>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Maria</td>
+                <td>Rojas</td>
+                <td>mrojas@gmail.com</td>
+            </tr>
+        </tbody>
+    <table border="1" style="background-color: rgb(38, 200, 200);"> 
+
+    <button onclick="mostrarMensaje()">Click here</button>
+    
+    <button onclick="agregarDatos()">Modificar Texto...</button>
+
+    
+    
+    <button onclick="">Pedir Datos</button>
+
+
+    <br>
+    <div>DATOS INGRESADOS</div>
+    <div>
+        Nombre: <span id="nombre"></span>
+        <br>
+        Apellido: <span id="apellido"></span>
+        <br>
+        Correo: <span id="correo"></span>
+    </div>
+    <p>Lista de Paises</p>
+    <ol>
+        <li>Colombia</li>
+        <li>Perú</li>
+    </ol>
+    <script>
+        function mostrarMensaje(){
+            alert("Hola Bienvenido...")
+        }
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
