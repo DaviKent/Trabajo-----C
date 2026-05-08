@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f0f3f8;
+    padding: 2rem;
+    color: #2c3e50;
+}
+
+h1{
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tarjeta{
+    display: inline-block;
+    position: relative;
+    width: 260px;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    overflow: hidden; /*La imagen no se sale del contenedor*/
+}
+
+.badge{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+    padding: 4px 10px;
+}
+
+.tarjeta-cuerpo{
+    padding: 1rem;
+}
+
+.tarjeta-nombre{
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.tarjeta-precio{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #27ae60;
+    margin-bottom: 0.8rem;
+}
+
+.tarjeta-btn{
+    display: block;
+    background-color: #2980b9;
+    color: white; /*color de fondo*/
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 6px;
+    text-decoration: none; /*le quitamos la linea que aparece ---*/
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.tarjeta-btn:hover{ /*para pasar el mouse por encima y que se le vea color*/
+    background-color: #1a3a5c; /*aqui se le pone el color que uno quiera que se vea*/
+}
+

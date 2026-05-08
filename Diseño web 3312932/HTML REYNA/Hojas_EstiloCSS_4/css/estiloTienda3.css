@@ -1,0 +1,102 @@
+:root{
+    --naranja: #f39c12;
+    --rojo-oferta: #e74c3c;
+    --texto: #2c3c50;
+    --radio-card: 12px;
+    --sombra: #0
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "segce UI" sans-serif;
+    background-color: #f4f6f8;
+}
+
+.navbar{
+    background-color: #1a1a2e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 60px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-logo{
+    color: white;
+    font: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.05rem;
+}
+
+.navbar-logo span{
+    color: #6c63ff;
+}
+.navbar-logo:active{
+    transform: scale(0.95);
+}
+
+.navbar-menu{
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.navbar-menu a:link,
+.navbar-menu a:visited{
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    position: relative;
+    transition: color 0.2;
+}
+
+.navbar-menu a:hover{
+    color: orange;
+}
+
+/*propiedades boton nav*/
+.navbar-menu .btn-nav a:link,
+.navbar-menu .btn-nav a:visited{
+    background-color: #6c63ff;
+    color: white;
+    font-weight: 600;
+}
+
+.navbar-menu .btn-nav a:hover{          
+    background-color: #5a52d5;
+    color: white;
+}
+
+.navbar-menu .btn-nav:active{          
+    transform: scale(0.95);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

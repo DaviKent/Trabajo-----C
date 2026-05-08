@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Etiqueta body esto afecta todo el contenido*/
+body{
+    font-family: 'Montserrat', Arial;
+    font-size: 1rem;
+    background-color: #f4f6f9;
+    color: #2d3436;
+    padding: 2rem;
+    line-height: 1.7;
+}
+
+/*selector ID*/
+#titulo-principal{
+    background-color: aquamarine;
+    color: #1a3a50;
+    font-size: 2rem;
+    border-bottom: 4px solid #2980b9;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+}
+
+/*selector de clase*/
+.titulo-seccion{
+    color: #2980b9;
+    font-size: 1.3rem;
+    margin: 1.5rem 0 0.5rem 0;
+    padding-left: 0.8rem;
+    border-left: 4px solid #2980b9;
+}
+
+/*clase adicional alerta*/
+.alerta{
+    color: #c0392b;
+    border-left-color: #c0392b;
+    background-color: #fdecea;
+    padding: 0.5rem 0.8rem; /*superior top y izquierda right*/
+    border-radius: 4px;
+}
+
+#para1{
+    color: #8e44ad;
+    font-weight: bold;
+}
+
+/*selector clase*/
+.center{
+    text-align: center;
+    color: #c0392b;
+}
+
+/*selector de etiqueta
+la , entre ul y ol ambos reciben la misma regla*/
+ul,ol{
+    padding-left: 2rem;
+    margin: 0.8rem 0; /*margen superior e izquierdo*/
+}
+
+ol{
+    margin-bottom: 0.5rem; 
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pie-texto{
+    text-align: center;
+    color: #636e72;
+    font-size: 0.85rem;
+    margin-top: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temática 5 — El Box Model y Control del Layout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+
+  <!-- BARRA DE NAVEGACIÓN -->
+  <nav class="navbar">
+    <span class="nav-logo">📦 Box Model — T5</span>
+    <ul class="nav-menu">
+      <li><a href="#concepto">Concepto</a></li>
+      <li><a href="#regla">Regla display</a></li>
+      <li><a href="#etiquetas">Etiquetas</a></li>
+      <li><a href="#pasos">Pasos CSS</a></li>
+      <li><a href="#overflow">Overflow</a></li>
+      <li><a href="#position">Position</a></li>
+      <li><a href="#pseudo">Pseudo</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="inicio">
+    <div class="hero-contenido">
+      <span class="hero-tag">Temática 5 · CSS3</span>
+      <h1 class="hero-titulo">El Box Model<br />y Control del Layout</h1>
+      <p class="hero-sub">Desde que entiendes el Box Model, ya no adivinas por qué un elemento está desplazado — lo calculas con precisión.</p>
+      <a href="#concepto" class="btn-hero">Empezar →</a>
+    </div>
+  </header>
+
+  <main class="contenedor">
+
+    <!-- =============================================
+         SECCIÓN 1 — QUÉ ES EL BOX MODEL
+    ============================================= -->
+    <section class="seccion" id="concepto">
+      <div class="seccion-header">
+        <span class="seccion-num">5.1</span>
+        <h2>El Box Model: todo es una caja</h2>
+      </div>
+      <p class="seccion-intro">
+        En CSS cada elemento HTML es una <strong>caja rectangular</strong> compuesta por cuatro capas concéntricas.
+        Entender estas capas es la base de todo el layout web.
+      </p>
+
+      <div class="dos-columnas">
+
+        <!-- Diagrama visual del Box Model -->
+        <div class="diagrama-boxmodel">
+          <div class="capa-margin-vis">
+            <span class="capa-label-vis margin-label">MARGIN</span>
+            <div class="capa-border-vis">
+              <span class="capa-label-vis border-label">BORDER</span>
+              <div class="capa-padding-vis">
+                <span class="capa-label-vis padding-label">PADDING</span>
+                <div class="capa-content-vis">
+                  <span>CONTENT</span>
+                  <small>300 × 150px</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Explicación de cada capa -->
+        <div class="capas-explicacion">
+          <div class="capa-item">
+            <span class="capa-dot dot-content"></span>
+            <div>
+              <strong>Content</strong>
+              <p>El área donde vive el texto, imagen o contenido real del elemento. Se controla con <code>width</code> y <code>height</code>.</p>
+            </div>
+          </div>
+          <div class="capa-item">
+            <span class="capa-dot dot-padding"></span>
+            <div>
+              <strong>Padding</strong>
+              <p>Espacio <em>interior</em> entre el contenido y el borde. Tiene el mismo color de fondo que el elemento.</p>
+            </div>
+          </div>
+          <div class="capa-item">
+            <span class="capa-dot dot-border"></span>
+            <div>
+              <strong>Border</strong>
+              <p>Línea visible alrededor del elemento. Puede tener grosor, estilo (solid, dashed) y color propios.</p>
+            </div>
+          </div>
+          <div class="capa-item">
+            <span class="capa-dot dot-margin"></span>
+            <div>
+              <strong>Margin</strong>
+              <p>Espacio <em>exterior</em> que separa este elemento de sus vecinos. Siempre es transparente.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- box-sizing -->
+      <div class="alerta-concepto" id="boxsizing">
+        <h3>5.2 — box-sizing: el cambio que todo desarrollador necesita</h3>
+        <p>Por defecto (<code>content-box</code>), el <code>width</code> solo mide el contenido — el padding y border se suman encima, haciendo el elemento más grande de lo esperado.</p>
+
+        <div class="comparativa-boxsizing">
+          <div class="box-malo">
+            <p class="box-tag tag-malo">❌ content-box (default)</p>
+            <div class="caja-demo sin-bs">
+              <p>width: 200px</p>
+              <p>+ padding: 20px × 2</p>
+              <p>+ border: 2px × 2</p>
+              <p class="resultado-malo">= 244px reales</p>
+            </div>
+            <pre class="codigo-bloque"><span class="c-selector">.caja</span> {
+  <span class="c-prop">width</span>: <span class="c-val">200px</span>;
+  <span class="c-prop">padding</span>: <span class="c-val">20px</span>;
+  <span class="c-prop">border</span>: <span class="c-val">2px solid</span>;
+  <span class="c-com">/* Ancho real: 244px ← sorpresa */</span>
+}</pre>
+          </div>
+
+          <div class="box-bueno">
+            <p class="box-tag tag-bueno">✅ border-box (recomendado)</p>
+            <div class="caja-demo con-bs">
+              <p>width: 200px</p>
+              <p>padding incluido</p>
+              <p>border incluido</p>
+              <p class="resultado-bueno">= 200px exactos</p>
+            </div>
+            <pre class="codigo-bloque"><span class="c-selector">*</span> {
+  <span class="c-prop">box-sizing</span>: <span class="c-val">border-box</span>;
+}
+<span class="c-selector">.caja</span> {
+  <span class="c-prop">width</span>: <span class="c-val">200px</span>;
+  <span class="c-prop">padding</span>: <span class="c-val">20px</span>;
+  <span class="c-prop">border</span>: <span class="c-val">2px solid</span>;
+  <span class="c-com">/* Ancho real: 200px exactos */</span>
+}</pre>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =============================================
+         SECCIÓN 2 — REGLA FUNDAMENTAL DISPLAY
+    ============================================= -->
+    <section class="seccion" id="regla">
+      <div class="seccion-header">
+        <span class="seccion-num">5.3</span>
+        <h2>La regla fundamental del display</h2>
+      </div>
+      <p class="seccion-intro">
+        El valor de <code>display</code> determina qué tanto del Box Model acepta un elemento.
+        Esta es la regla más importante para entender el comportamiento de cualquier etiqueta.
+      </p>
+
+      <div class="tres-columnas">
+
+        <div class="display-card display-block-card">
+          <div class="display-icon">▣</div>
+          <h3>display: block</h3>
+          <p class="display-subtag">Acepta <strong>TODO</strong> el Box Model</p>
+          <ul class="display-lista">
+            <li>✅ width y height</li>
+            <li>✅ padding en los 4 lados</li>
+            <li>✅ margin en los 4 lados</li>
+            <li>✅ border en los 4 lados</li>
+            <li>↔ Ocupa todo el ancho disponible</li>
+            <li>↓ Genera salto de línea</li>
+          </ul>
+          <div class="display-demo-vis block-demo">
+            <div class="bloque-vis">Bloque 1</div>
+            <div class="bloque-vis">Bloque 2</div>
+          </div>
+        </div>
+
+        <div class="display-card display-inline-card">
+          <div class="display-icon">▬</div>
+          <h3>display: inline</h3>
+          <p class="display-subtag">Acepta <strong>SOLO PARTE</strong></p>
+          <ul class="display-lista">
+            <li>❌ width y height ignorados</li>
+            <li>✅ padding horizontal</li>
+            <li>⚠️ padding vertical (visual, no empuja)</li>
+            <li>✅ margin horizontal</li>
+            <li>❌ margin vertical ignorado</li>
+            <li>↔ Ocupa solo su contenido</li>
+          </ul>
+          <div class="display-demo-vis inline-demo">
+            <span class="inline-vis">span 1</span>
+            <span class="inline-vis">span 2</span>
+            <span class="inline-vis">span 3</span>
+          </div>
+        </div>
+
+        <div class="display-card display-inlineblock-card">
+          <div class="display-icon">⊞</div>
+          <h3>display: inline-block</h3>
+          <p class="display-subtag">Acepta <strong>TODO</strong> el Box Model</p>
+          <ul class="display-lista">
+            <li>✅ width y height</li>
+            <li>✅ padding en los 4 lados</li>
+            <li>✅ margin en los 4 lados</li>
+            <li>✅ border en los 4 lados</li>
+            <li>↔ Ocupa solo su contenido</li>
+            <li>→ Convive en la misma línea</li>
+          </ul>
+          <div class="display-demo-vis inlineblock-demo">
+            <span class="ib-vis">Item 1</span>
+            <span class="ib-vis">Item 2</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================
+         SECCIÓN 3 — ETIQUETAS Y SU DISPLAY
+    ============================================= -->
+    <section class="seccion" id="etiquetas">
+      <div class="seccion-header">
+        <span class="seccion-num">5.3b</span>
+        <h2>Etiquetas HTML y su display por defecto</h2>
+      </div>
+      <p class="seccion-intro">
+        Cada etiqueta HTML tiene un <code>display</code> por defecto asignado por el navegador.
+        Conocerlos evita confusiones al aplicar el Box Model.
+      </p>
+
+      <div class="dos-columnas-etiquetas">
+
+        <!-- Bloque -->
+        <div class="etiquetas-grupo">
+          <div class="etiquetas-header etiquetas-block">
+            <span class="etiquetas-icon">▣</span>
+            <div>
+              <h3>Etiquetas BLOCK</h3>
+              <p>Aceptan <strong>todo</strong> el Box Model: width, height, padding y margin en los 4 lados</p>
+            </div>
+          </div>
+          <div class="etiquetas-grid">
+            <code class="tag">div</code>
+            <code class="tag">section</code>
+            <code class="tag">article</code>
+            <code class="tag">aside</code>
+            <code class="tag">header</code>
+            <code class="tag">footer</code>
+            <code class="tag">nav</code>
+            <code class="tag">main</code>
+            <code class="tag">h1</code>
+            <code class="tag">h2</code>
+            <code class="tag">h3</code>
+            <code class="tag">h4–h6</code>
+            <code class="tag">p</code>
+            <code class="tag">ul</code>
+            <code class="tag">ol</code>
+            <code class="tag">li</code>
+            <code class="tag">table</code>
+            <code class="tag">form</code>
+            <code class="tag">blockquote</code>
+            <code class="tag">figure</code>
+            <code class="tag">hr</code>
+            <code class="tag">pre</code>
+            <code class="tag">address</code>
+          </div>
+        </div>
+
+        <!-- Inline -->
+        <div class="etiquetas-grupo">
+          <div class="etiquetas-header etiquetas-inline">
+            <span class="etiquetas-icon">▬</span>
+            <div>
+              <h3>Etiquetas INLINE</h3>
+              <p>Aceptan <strong>solo parte</strong>: ignoran width, height y margin vertical</p>
+            </div>
+          </div>
+          <div class="etiquetas-grid">
+            <code class="tag tag-inline">span</code>
+            <code class="tag tag-inline">a</code>
+            <code class="tag tag-inline">strong</code>
+            <code class="tag tag-inline">em</code>
+            <code class="tag tag-inline">b</code>
+            <code class="tag tag-inline">i</code>
+            <code class="tag tag-inline">small</code>
+            <code class="tag tag-inline">label</code>
+          </div>
+
+          <div class="etiquetas-header etiquetas-replaced" style="margin-top:1.5rem">
+            <span class="etiquetas-icon">⊡</span>
+            <div>
+              <h3>Inline-replaced</h3>
+              <p>Inline por defecto pero <strong>sí aceptan</strong> width y height</p>
+            </div>
+          </div>
+          <div class="etiquetas-grid">
+            <code class="tag tag-replaced">img</code>
+            <code class="tag tag-replaced">input</code>
+            <code class="tag tag-replaced">button</code>
+          </div>
+
+          <div class="nota-solucion">
+            <strong>💡 Solución universal</strong>
+            <p>¿Necesitas Box Model completo en un inline? Cambia su display:</p>
+            <pre class="codigo-mini"><span class="c-selector">span</span> { <span class="c-prop">display</span>: <span class="c-val">inline-block</span>; }
+<span class="c-selector">a</span>    { <span class="c-prop">display</span>: <span class="c-val">block</span>; }</pre>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================
+         SECCIÓN 4 — PASOS CSS
+    ============================================= -->
+    <section class="seccion" id="pasos">
+      <div class="seccion-header">
+        <span class="seccion-num">Práctica</span>
+        <h2>Pasos para aplicar el Box Model</h2>
+      </div>
+      <p class="seccion-intro">
+        Cada paso se aplica sobre el mismo HTML de 3 cajas. Guarda y refresca el navegador después de cada bloque.
+      </p>
+
+      <!-- PASO 1 -->
+      <div class="paso-card">
+        <div class="paso-header">
+          <span class="paso-num">Paso 1</span>
+          <h3>Reset y base del documento</h3>
+        </div>
+        <div class="paso-explicacion">
+          <p>Antes de tocar las cajas limpiamos lo que el navegador agrega por defecto y definimos la base visual. El <code>box-sizing: border-box</code> en el reset es el concepto más importante — cambia completamente cómo CSS calcula el ancho.</p>
+        </div>
+        <pre class="codigo-bloque"><span class="c-com">/* Reset universal — elimina márgenes del navegador
+   box-sizing: border-box hace que padding y border
+   se cuenten ADENTRO del width declarado, no afuera */</span>
+<span class="c-selector">*</span> {
+  <span class="c-prop">margin</span>: <span class="c-val">0</span>;
+  <span class="c-prop">padding</span>: <span class="c-val">0</span>;
+  <span class="c-prop">box-sizing</span>: <span class="c-val">border-box</span>;
+}
+
+<span class="c-com">/* Base del documento */</span>
+<span class="c-selector">body</span> {
+  <span class="c-prop">font-family</span>: <span class="c-val">'Segoe UI', Arial, sans-serif</span>;
+  <span class="c-prop">background-color</span>: <span class="c-val">#f0f4f8</span>;
+  <span class="c-prop">padding</span>: <span class="c-val">2rem</span>;
+  <span class="c-prop">color</span>: <span class="c-val">#2c3e50</span>;
+}
+
+<span class="c-selector">h1</span> {
+  <span class="c-prop">font-size</span>: <span class="c-val">1.8rem</span>;
+  <span class="c-prop">margin-bottom</span>: <span class="c-val">2rem</span>;
+  <span class="c-prop">color</span>: <span class="c-val">#2c3e50</span>;
+}</pre>
+        <div class="paso-resultado">
+          <span class="resultado-icon">👁</span>
+          <p><strong>Guarda y refresca.</strong> El fondo cambia a gris azulado y el texto tiene la fuente nueva. Los márgenes por defecto del navegador desaparecen.</p>
+        </div>
+      </div>
+
+      <!-- PASO 2 -->
+      <div class="paso-card">
+        <div class="paso-header">
+          <span class="paso-num">Paso 2</span>
+          <h3>Box Model en la Caja 1 — propiedad por propiedad</h3>
+        </div>
+        <div class="paso-explicacion">
+          <p>Agregar cada propiedad por separado, guardando y refrescando después de cada una. Así se ve exactamente qué hace cada capa del Box Model.</p>
+        </div>
+        <pre class="codigo-bloque"><span class="c-com">/* ── CAJA 1 — demostración del Box Model ──
+   Agrega una propiedad a la vez y observa el cambio */</span>
+<span class="c-selector">#caja-1</span> {
+  <span class="c-com">/* 1. CONTENIDO: ancho y alto del área de texto */</span>
+  <span class="c-prop">width</span>: <span class="c-val">300px</span>;
+  <span class="c-prop">height</span>: <span class="c-val">150px</span>;
+
+  <span class="c-com">/* 2. PADDING: espacio interior entre texto y borde
+     shorthand 2 valores: arriba/abajo | izquierda/derecha */</span>
+  <span class="c-prop">padding</span>: <span class="c-val">20px 30px</span>;
+
+  <span class="c-com">/* 3. BORDER: borde visible
+     shorthand: grosor | estilo | color */</span>
+  <span class="c-prop">border</span>: <span class="c-val">4px solid #3498db</span>;
+
+  <span class="c-com">/* 4. MARGIN: espacio exterior con los vecinos
+     shorthand 2 valores: arriba/abajo | izquierda/derecha */</span>
+  <span class="c-prop">margin</span>: <span class="c-val">30px 0</span>;
+
+  <span class="c-prop">background-color</span>: <span class="c-val">#ffffff</span>;
+}</pre>
+
+        <div class="pasos-inline">
+          <div class="mini-paso">
+            <span class="mini-num">①</span>
+            <p>Solo <code>width</code> y <code>height</code> → la caja tiene dimensiones pero el texto toca los bordes</p>
+          </div>
+          <div class="mini-paso">
+            <span class="mini-num">②</span>
+            <p>Agrega <code>padding</code> → el texto respira dentro de la caja</p>
+          </div>
+          <div class="mini-paso">
+            <span class="mini-num">③</span>
+            <p>Agrega <code>border</code> → aparece el borde azul. Con <code>border-box</code> sigue siendo 300px exactos</p>
+          </div>
+          <div class="mini-paso">
+            <span class="mini-num">④</span>
+            <p>Agrega <code>margin</code> → la caja se separa del h1 y de las demás cajas</p>
+          </div>
+        </div>
+
+        <div class="alerta-demo">
+          <strong>🔬 Demostración clave:</strong> Comenta <code>box-sizing: border-box</code> del reset. La caja pasa de 300px a 368px (300+60padding+8border). Vuelve a descomentar — regresa a 300px exactos.
+        </div>
+
+        <div class="tabla-calculo">
+          <div class="calc-col calc-malo">
+            <h4>❌ Sin border-box</h4>
+            <div class="calc-fila"><span>width:</span><span>300px</span></div>
+            <div class="calc-fila"><span>padding:</span><span>+60px</span></div>
+            <div class="calc-fila"><span>border:</span><span>+8px</span></div>
+            <div class="calc-total"><span>Total:</span><span>368px</span></div>
+          </div>
+          <div class="calc-col calc-bueno">
+            <h4>✅ Con border-box</h4>
+            <div class="calc-fila"><span>width:</span><span>300px</span></div>
+            <div class="calc-fila"><span>padding:</span><span>incluido</span></div>
+            <div class="calc-fila"><span>border:</span><span>incluido</span></div>
+            <div class="calc-total"><span>Total:</span><span>300px</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASO 3 -->
+      <div class="paso-card">
+        <div class="paso-header">
+          <span class="paso-num">Paso 3</span>
+          <h3>Display y tipos de comportamiento — Caja 2</h3>
+        </div>
+        <div class="paso-explicacion">
+          <p>La caja 2 demuestra los tres tipos de display más usados. Cada cambio de una sola propiedad transforma completamente el comportamiento del elemento en el flujo del documento.</p>
+        </div>
+        <pre class="codigo-bloque"><span class="c-com">/* ── CLASE BASE para las 3 cajas ── */</span>
+<span class="c-selector">.caja</span> {
+  <span class="c-prop">background-color</span>: <span class="c-val">#ffffff</span>;
+  <span class="c-prop">border</span>: <span class="c-val">2px solid #b2bec3</span>;
+  <span class="c-prop">padding</span>: <span class="c-val">1rem</span>;
+  <span class="c-prop">margin-bottom</span>: <span class="c-val">1.5rem</span>;
+}
+
+<span class="c-com">/* display: block — valor por defecto de div
+   Ocupa TODO el ancho disponible */</span>
+<span class="c-selector">#caja-2</span> { <span class="c-prop">display</span>: <span class="c-val">block</span>; <span class="c-prop">width</span>: <span class="c-val">300px</span>; }
+
+<span class="c-com">/* display: inline-block — ocupa solo lo necesario
+   pero SÍ acepta width y height */</span>
+<span class="c-selector">#caja-2</span> {
+  <span class="c-prop">display</span>: <span class="c-val">inline-block</span>;
+  <span class="c-prop">width</span>: <span class="c-val">300px</span>;
+  <span class="c-prop">vertical-align</span>: <span class="c-val">top</span>; <span class="c-com">/* alinea desde arriba */</span>
+}
+
+<span class="c-com">/* display: none — desaparece completamente */</span>
+<span class="c-selector">#caja-2</span> { <span class="c-prop">display</span>: <span class="c-val">none</span>; }</pre>
+
+        <div class="display-tabla-visual">
+          <div class="dtv-row">
+            <code class="dtv-valor">block</code>
+            <div class="dtv-demo">
+              <div class="dtv-bloque">Ocupa toda la línea</div>
+              <div class="dtv-bloque" style="opacity:0.3">Siguiente también abajo</div>
+            </div>
+          </div>
+          <div class="dtv-row">
+            <code class="dtv-valor">inline-block</code>
+            <div class="dtv-demo dtv-flex">
+              <div class="dtv-ib">Caja 1</div>
+              <div class="dtv-ib">Caja 2</div>
+            </div>
+          </div>
+          <div class="dtv-row">
+            <code class="dtv-valor">none</code>
+            <div class="dtv-demo">
+              <div class="dtv-bloque" style="opacity:0.2;text-decoration:line-through">Elemento invisible</div>
+              <p style="font-size:0.85rem;color:#666;margin-top:0.3rem">No ocupa espacio — el siguiente sube</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASO 4 -->
+      <div class="paso-card">
+        <div class="paso-header">
+          <span class="paso-num">Paso 4</span>
+          <h3>Position: relative y absolute — el badge</h3>
+        </div>
+        <div class="paso-explicacion">
+          <p><strong>El truco fundamental:</strong> para usar <code>position: absolute</code> en un elemento hijo correctamente, el padre debe tener <code>position: relative</code>. Así el hijo se posiciona dentro del padre, no en la ventana.</p>
+        </div>
+        <pre class="codigo-bloque"><span class="c-com">/* PASO 4a — Sin relative en el padre
+   El badge se va a la esquina de la PANTALLA */</span>
+<span class="c-selector">.badge</span> {
+  <span class="c-prop">position</span>: <span class="c-val">absolute</span>;
+  <span class="c-prop">top</span>: <span class="c-val">0</span>;
+  <span class="c-prop">right</span>: <span class="c-val">0</span>; <span class="c-com">/* ← va a la esquina del body */</span>
+}
+
+<span class="c-com">/* PASO 4b — Con relative en el padre ✅
+   El badge se posiciona dentro de la caja 2 */</span>
+<span class="c-selector">#caja-2</span> {
+  <span class="c-prop">position</span>: <span class="c-val">relative</span>; <span class="c-com">/* punto de referencia para el hijo */</span>
+}
+<span class="c-selector">.badge</span> {
+  <span class="c-prop">position</span>: <span class="c-val">absolute</span>;
+  <span class="c-prop">top</span>: <span class="c-val">10px</span>;   <span class="c-com">/* 10px desde el borde de la CAJA */</span>
+  <span class="c-prop">right</span>: <span class="c-val">10px</span>;  <span class="c-com">/* 10px desde el borde de la CAJA */</span>
+  <span class="c-prop">background-color</span>: <span class="c-val">#e74c3c</span>;
+  <span class="c-prop">color</span>: <span class="c-val">white</span>;
+  <span class="c-prop">padding</span>: <span class="c-val">0.25rem 0.6rem</span>;
+  <span class="c-prop">border-radius</span>: <span class="c-val">20px</span>;
+}</pre>
+
+        <div class="position-visual">
+          <div class="pv-malo">
+            <span class="pv-label">❌ Sin relative en padre</span>
+            <div class="pv-pantalla">
+              <div class="pv-badge-malo">NUEVO</div>
+              <div class="pv-caja">Caja 2</div>
+            </div>
+          </div>
+          <div class="pv-bueno">
+            <span class="pv-label">✅ Con relative en padre</span>
+            <div class="pv-pantalla">
+              <div class="pv-caja-rel">
+                Caja 2
+                <div class="pv-badge-bueno">NUEVO</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabla-position">
+          <h4>Los 5 valores de position</h4>
+          <div class="tp-fila tp-header">
+            <span>Valor</span><span>Sale del flujo</span><span>Referencia</span><span>Uso típico</span>
+          </div>
+          <div class="tp-fila">
+            <code>static</code><span>No</span><span>—</span><span>Default — flujo normal</span>
+          </div>
+          <div class="tp-fila">
+            <code>relative</code><span>No</span><span>Su posición original</span><span>Mover levemente + contenedor para absolute</span>
+          </div>
+          <div class="tp-fila tp-destacado">
+            <code>absolute</code><span>Sí</span><span>Ancestro con position</span><span>Badges, tooltips, overlays</span>
+          </div>
+          <div class="tp-fila">
+            <code>fixed</code><span>Sí</span><span>La ventana del navegador</span><span>Navbars, botones flotantes</span>
+          </div>
+          <div class="tp-fila">
+            <code>sticky</code><span>No/Sí</span><span>Scroll del viewport</span><span>Headers que se fijan al scroll</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =============================================
+         SECCIÓN 5 — OVERFLOW
+    ============================================= -->
+    <section class="seccion" id="overflow">
+      <div class="seccion-header">
+        <span class="seccion-num">Paso 5</span>
+        <h2>Overflow — qué pasa cuando el contenido desborda</h2>
+      </div>
+      <p class="seccion-intro">
+        La caja 3 tiene <code>height</code> fija insuficiente para su contenido. Los cuatro valores de <code>overflow</code> manejan ese desbordamiento de formas distintas.
+      </p>
+
+      <pre class="codigo-bloque"><span class="c-selector">#caja-3</span> {
+  <span class="c-prop">width</span>: <span class="c-val">400px</span>;
+  <span class="c-prop">height</span>: <span class="c-val">100px</span>; <span class="c-com">/* insuficiente para el texto */</span>
+  <span class="c-prop">padding</span>: <span class="c-val">1rem</span>;
+
+  <span class="c-com">/* Prueba uno a la vez y observa el resultado: */</span>
+  <span class="c-prop">overflow</span>: <span class="c-val">visible</span>;  <span class="c-com">/* default: sale de la caja */</span>
+  <span class="c-prop">overflow</span>: <span class="c-val">hidden</span>;   <span class="c-com">/* recorta — no es visible */</span>
+  <span class="c-prop">overflow</span>: <span class="c-val">scroll</span>;   <span class="c-com">/* scrollbar siempre visible */</span>
+  <span class="c-prop">overflow</span>: <span class="c-val">auto</span>;     <span class="c-com">/* scrollbar solo si hace falta ✅ */</span>
+}</pre>
+
+      <div class="overflow-grid">
+        <div class="of-card">
+          <span class="of-tag of-visible">visible</span>
+          <div class="of-demo of-demo-visible">
+            El texto sale de la caja sin ningún recorte. Es el comportamiento por defecto del navegador. El texto aparece fuera del borde.
+          </div>
+          <p class="of-uso">Default — raramente deseable</p>
+        </div>
+        <div class="of-card">
+          <span class="of-tag of-hidden">hidden</span>
+          <div class="of-demo of-demo-hidden">
+            El texto que no cabe queda cortado. El usuario no puede verlo ni hacer scroll.
+          </div>
+          <p class="of-uso">Imágenes con border-radius, animaciones</p>
+        </div>
+        <div class="of-card">
+          <span class="of-tag of-scroll">scroll</span>
+          <div class="of-demo of-demo-scroll">
+            Scrollbar siempre visible aunque el contenido quepa en el espacio disponible.
+          </div>
+          <p class="of-uso">Poco usado — scrollbar aunque no haga falta</p>
+        </div>
+        <div class="of-card of-card-destacado">
+          <span class="of-tag of-auto">auto ✅</span>
+          <div class="of-demo of-demo-auto">
+            Scrollbar aparece solo cuando el contenido realmente lo necesita. La opción más inteligente.
+          </div>
+          <p class="of-uso">El más usado en producción</p>
+        </div>
+      </div>
+
+      <div class="alerta-demo">
+        <strong>🔬 Bonus — overflow y border-radius:</strong> Agrega <code>border-radius: 50px</code> y <code>overflow: hidden</code> a la caja 3. El texto queda recortado limpiamente siguiendo la curva. Sin <code>hidden</code> el texto saldría rompiendo el diseño.
+      </div>
+    </section>
+
+    <!-- =============================================
+         SECCIÓN 6 — POSITION STICKY Y FIXED
+    ============================================= -->
+    <section class="seccion" id="position">
+      <div class="seccion-header">
+        <span class="seccion-num">Paso 6</span>
+        <h2>Position: sticky y fixed</h2>
+      </div>
+      <p class="seccion-intro">
+        <code>fixed</code> se ancla a la ventana del navegador — siempre visible sin importar el scroll.
+        <code>sticky</code> se comporta como <code>relative</code> hasta que llegas a un punto del scroll, y ahí se fija.
+      </p>
+
+      <pre class="codigo-bloque"><span class="c-com">/* FIXED — anclado a la VENTANA
+   z-index eleva el elemento por encima de otros */</span>
+<span class="c-selector">.barra-fixed</span> {
+  <span class="c-prop">position</span>: <span class="c-val">fixed</span>;
+  <span class="c-prop">bottom</span>: <span class="c-val">0</span>;
+  <span class="c-prop">left</span>: <span class="c-val">0</span>;
+  <span class="c-prop">width</span>: <span class="c-val">100%</span>;
+  <span class="c-prop">z-index</span>: <span class="c-val">100</span>; <span class="c-com">/* mayor número = encima de todo */</span>
+}
+
+<span class="c-com">/* STICKY — relativo hasta el umbral, luego fijo */</span>
+<span class="c-selector">.encabezado-sticky</span> {
+  <span class="c-prop">position</span>: <span class="c-val">sticky</span>;
+  <span class="c-prop">top</span>: <span class="c-val">0</span>; <span class="c-com">/* se pega cuando llega a 0px del top */</span>
+  <span class="c-prop">z-index</span>: <span class="c-val">50</span>;
+}</pre>
+
+      <div class="sticky-vs-fixed">
+        <div class="svf-card">
+          <h4>position: fixed</h4>
+          <div class="svf-demo svf-fixed-demo">
+            <div class="svf-ventana">
+              <div class="svf-barra">BARRA FIXED — siempre aquí</div>
+              <div class="svf-contenido">
+                <div class="svf-elemento">contenido</div>
+                <div class="svf-elemento">que sube</div>
+                <div class="svf-elemento">al scrollear</div>
+              </div>
+            </div>
+          </div>
+          <ul class="svf-lista">
+            <li>Se ancla a la ventana del navegador</li>
+            <li>Sale del flujo del documento</li>
+            <li>Siempre visible en toda la página</li>
+            <li>Puede tapar contenido — usar con z-index</li>
+          </ul>
+        </div>
+        <div class="svf-card">
+          <h4>position: sticky</h4>
+          <div class="svf-demo svf-sticky-demo">
+            <div class="svf-ventana">
+              <div class="svf-sticky">📌 STICKY — se pega al llegar</div>
+              <div class="svf-contenido">
+                <div class="svf-elemento">contenido</div>
+                <div class="svf-elemento">debajo del</div>
+                <div class="svf-elemento">elemento sticky</div>
+              </div>
+            </div>
+          </div>
+          <ul class="svf-lista">
+            <li>Relativo mientras está en pantalla</li>
+            <li>Se fija al llegar al umbral top/bottom</li>
+            <li>Permanece en el flujo del documento</li>
+            <li>Solo visible en su sección del documento</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="diferencia-clave">
+        <strong>fixed</strong> → se ancla a la <strong>ventana</strong> — siempre visible en toda la página &nbsp;|&nbsp;
+        <strong>sticky</strong> → se ancla al <strong>contenedor</strong> — visible solo mientras su sección está en pantalla
+      </div>
+    </section>
+
+    <!-- =============================================
+         SECCIÓN 7 — PSEUDO-ELEMENTOS
+    ============================================= -->
+    <section class="seccion" id="pseudo">
+      <div class="seccion-header">
+        <span class="seccion-num">Paso 7</span>
+        <h2>Pseudo-elementos ::before y ::after</h2>
+      </div>
+      <p class="seccion-intro">
+        Los pseudo-elementos crean contenido visual <strong>sin tocar el HTML</strong>.
+        Siempre necesitan la propiedad <code>content</code>, aunque esté vacía.
+      </p>
+
+      <pre class="codigo-bloque"><span class="c-com">/* ::before — ANTES del contenido del elemento */</span>
+<span class="c-selector">#caja-1::before</span> {
+  <span class="c-prop">content</span>: <span class="c-val">'📦 '</span>;   <span class="c-com">/* obligatorio — sin él no existe */</span>
+  <span class="c-prop">font-size</span>: <span class="c-val">1.2rem</span>;
+}
+
+<span class="c-com">/* ::after — DESPUÉS del contenido del elemento */</span>
+<span class="c-selector">#caja-1::after</span> {
+  <span class="c-prop">content</span>: <span class="c-val">' ✓'</span>;
+  <span class="c-prop">color</span>: <span class="c-val">#27ae60</span>;
+  <span class="c-prop">font-weight</span>: <span class="c-val">700</span>;
+}
+
+<span class="c-com">/* Separador decorativo — content vacío '' */</span>
+<span class="c-selector">h1::after</span> {
+  <span class="c-prop">content</span>: <span class="c-val">''</span>;          <span class="c-com">/* existe pero sin texto */</span>
+  <span class="c-prop">display</span>: <span class="c-val">block</span>;
+  <span class="c-prop">width</span>: <span class="c-val">60px</span>;
+  <span class="c-prop">height</span>: <span class="c-val">4px</span>;
+  <span class="c-prop">background-color</span>: <span class="c-val">#3498db</span>;
+  <span class="c-prop">margin</span>: <span class="c-val">0.5rem auto 0</span>;
+}
+
+<span class="c-com">/* Badge con ::after — position: absolute
+   mismo concepto del Paso 4 con position */</span>
+<span class="c-selector">#caja-3</span> { <span class="c-prop">position</span>: <span class="c-val">relative</span>; }
+<span class="c-selector">#caja-3::after</span> {
+  <span class="c-prop">content</span>: <span class="c-val">'OFERTA'</span>;
+  <span class="c-prop">position</span>: <span class="c-val">absolute</span>;
+  <span class="c-prop">top</span>: <span class="c-val">8px</span>;
+  <span class="c-prop">right</span>: <span class="c-val">8px</span>;
+  <span class="c-prop">background-color</span>: <span class="c-val">#e74c3c</span>;
+  <span class="c-prop">color</span>: <span class="c-val">white</span>;
+  <span class="c-prop">padding</span>: <span class="c-val">0.2rem 0.6rem</span>;
+  <span class="c-prop">border-radius</span>: <span class="c-val">20px</span>;
+}</pre>
+
+      <div class="pseudo-tabla">
+        <div class="pt-header">
+          <h4>Reglas obligatorias de los pseudo-elementos</h4>
+        </div>
+        <div class="pt-regla">
+          <span class="pt-num">1</span>
+          <div><strong>content siempre requerido</strong> — sin <code>content: ''</code> el pseudo-elemento no se renderiza aunque tenga todos los demás estilos</div>
+        </div>
+        <div class="pt-regla">
+          <span class="pt-num">2</span>
+          <div><strong>Se posicionan como cualquier elemento</strong> — con <code>position: absolute</code> se comportan igual que un elemento real</div>
+        </div>
+        <div class="pt-regla">
+          <span class="pt-num">3</span>
+          <div><strong>No existen en el HTML</strong> — no se pueden seleccionar con el cursor, no aparecen en el inspector de elementos</div>
+        </div>
+        <div class="pt-regla">
+          <span class="pt-num">4</span>
+          <div><strong>Usos comunes:</strong> separadores decorativos, badges sin HTML extra, íconos antes de listas, subrayados animados en hover, overlays sobre imágenes</div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =============================================
+         RESUMEN FINAL
+    ============================================= -->
+    <section class="seccion resumen-final">
+      <h2>Resumen — Temática 5 completa</h2>
+      <div class="resumen-grid">
+        <div class="resumen-item">
+          <span class="r-icon">📦</span>
+          <h4>Box Model</h4>
+          <p>Content → Padding → Border → Margin. Con <code>border-box</code> el width incluye todo.</p>
+        </div>
+        <div class="resumen-item">
+          <span class="r-icon">▣</span>
+          <h4>Display</h4>
+          <p><code>block</code> acepta todo. <code>inline</code> ignora width/height. <code>inline-block</code> acepta todo pero convive en línea.</p>
+        </div>
+        <div class="resumen-item">
+          <span class="r-icon">📍</span>
+          <h4>Position</h4>
+          <p>Para <code>absolute</code> el padre necesita <code>relative</code>. <code>fixed</code> a la ventana. <code>sticky</code> al scroll.</p>
+        </div>
+        <div class="resumen-item">
+          <span class="r-icon">📜</span>
+          <h4>Overflow</h4>
+          <p><code>auto</code> es el más usado en producción — scrollbar solo cuando hace falta.</p>
+        </div>
+        <div class="resumen-item">
+          <span class="r-icon">✨</span>
+          <h4>Pseudo-elementos</h4>
+          <p><code>::before</code> y <code>::after</code> crean contenido visual sin tocar el HTML. Siempre necesitan <code>content</code>.</p>
+        </div>
+        <div class="resumen-item">
+          <span class="r-icon">🔢</span>
+          <h4>z-index</h4>
+          <p>Controla el orden de apilamiento. Solo funciona en elementos con <code>position</code> distinto de <code>static</code>.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Temática 5 — Box Model y Control del Layout · CSS3 · SENA CTPI 2025</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/practica3.css">
+</head>
+<body>
+  <h1 class="titulo">Sistema de Diseño — Componentes UI</h1>
+  <p>Demostración de botones y estados interactivos.</p>
+
+  <h2>Botones de acción</h2>
+  <button class="btn btn-primario">Guardar cambios</button>
+  <button class="btn btn-secundario">Cancelar</button>
+  <button class="btn btn-exito">✓ Confirmar pedido</button>
+  <button class="btn btn-peligro">✕ Eliminar cuenta</button>
+  <button class="btn btn-deshabilitado" disabled>No disponible</button>
+
+  <h2>Formulario con estados visuales de validación</h2>
+  <div class="formulario-demo">
+    <label for="demo-email">Correo electrónico</label>
+    <input type="email" id="demo-email" placeholder="tu@correo.com">
+
+    <label for="demo-pass">Contraseña (mín. 8 caracteres)</label>
+    <input type="password" id="demo-pass" minlength="8" placeholder="••••••••">
+
+    <button class="btn btn-primario" style="width:100%">Iniciar sesión</button>
+  </div>
+</body>
+
+
+
+----------------
+3 — Caso de estudio: Sistema de botones y estados interactivos
+----------------
+Tipo: Caso de estudio
+
+Enunciado: Una agencia digital necesita crear una página de demostración de su sistema de botones. 
+Debe incluir botones de tipo: primario, secundario, peligro, éxito, y deshabilitado. 
+Cada botón debe tener estado normal, :hover (pasar cursor) y :active (al hacer clic). 
+Además, los campos de un pequeño formulario deben cambiar visualmente al recibir foco.
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        p{
+            color: rgb(43, 33, 187);
+            font-size: 14;
+        }
+    </style>
+
+
+    <header>
+    <h1>Habitos de Lectura Encuesta 2026</h1>
+    <p>Investigación departamento de Humanidades</p>
+</header>
+<!--Formulario-->
+<section>
+    <h2>Participa en la encuesta</h2>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>
+                Tus datos registrados
+            </legend>
+            <p>
+                <label for="edad">Edad</label>
+                <input type="number" name="edad" id="edad" min="16" max="79" required>
+            </p>
+            <p>
+                <label for="semestre">Semestre actual: </label>
+                <select name="semestre" id="semestre">
+                    <option value="">--Selecciona--</option>
+                    <option value="1-2">1° o 2°</option>
+                    <option value="3-4">3° o 4°</option>
+                    <option value="5-6">5° o 6°</option>
+                    <option value="7-8">7° o 8°</option>
+                    <option value="9-10">9° o 10°</option>
+                </select>
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Habitos de lectura</legend>
+            <p>
+                <label for="horas-semana">Cuantas horas a la semana lee?</label>
+                <input type="range" id="horas-semana" name="horas" min="1" max="20" value="25">
+            </p>
+            <p><strong>Generos de lectura habituales?</strong></p>
+            <label><input type="checkbox" name="genero" value="novela">Novela</label><br>
+            <label><input type="checkbox" name="genero" value="tecnologia">Ciencia y tecnologia</label><br>
+            <label><input type="checkbox" name="genero" value="programacion">Programación Web y Movil</label><br>
+            <label><input type="checkbox" name="genero" value="basededatos">Base de datos SQL</label><br>
+        </fieldset>
+        <p>
+            <button type="submit">Enviar respuesta</button>
+        </p>
+    </form>
+<section>
+        <!--Tabla de resultados-->
+        <section>
+            <h2>Resultados de encuestas anteriores</h2><br>
+            <table border="1">
+                <caption>Resumen de respuestas Semestre 1 de 2025</caption>
+                <thead>
+                    <tr><!--tr fila-->
+                        <th scope="col">#</th>
+                        <th scope="col">Semestre</th>
+                        <th scope="col">Horas-/semana</th>
+                        <th scope="col">Genero favorito</th>
+                        <th scope="col">Formato preferido</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>3° - 4°</td><td>3</td><td>Novela</td><td>Digital</td></tr>
+                    <tr><td>2</td><td>1° - 2°</td><td>6</td><td>Tecnologia</td><td>Digital</td></tr>
+                    <tr><td>3</td><td>5° - 6°</td><td>3</td><td>Autoayuda</td><td>Fisico</td></tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row" colspan="2">Promedio y tendencia</th>
+                        <td><strong>5.8 horas a la semana</strong></td>
+                        <td>Novela 30% / Tecnica 50%</td>
+                        <td>Fisico 40% / Digital 60%</td>
+                        
+                    </tr>
+                </tfoot>
+
+            </table>
+        </section>
+</body>
+</html>

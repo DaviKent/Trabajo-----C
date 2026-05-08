@@ -1,0 +1,84 @@
+*{margin: 0;
+padding: 0;
+box-sizing: border-box;    
+}
+
+.caja1{
+    width: 300px;
+    height: 150px;
+    border: 2px solid#333;
+    padding: 20px 5px 10px 5px;
+    margin: 30px 20px;
+}
+
+/*boxsizing*/
+.contenedor{
+    width: 300px;
+    border: 3px solid red;
+    margin-bottom: 3rem;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.caja2{
+    border: 2px solid #333;
+}
+
+/*3 Tipos de display*/
+.contenedor3{
+    border: 2px solid blue;
+}
+
+.caja3{
+    border: 2px solid;
+    display: block;
+    margin: 10px 5px;
+    padding: 5px 5px;
+}
+
+/*display inline*/
+span{
+    display: inline;
+    border: 2px solid;
+    width: 300px;
+}
+
+/*display inline-bloc*/
+.caja4{
+    border: 2px solid green;
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 5px 5px;
+}
+
+/*posicion absoluta y relativa*/
+.contenedor5{
+    width: 300px;
+    height: 180px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 3px solid #3498db;
+    position: relative;
+}
+
+.badge{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.caja5{
+    background-color: #d6eaf8;
+    border: 2px solid #333;
+    padding: 1rem;
+    margin-top: 1.5rem;
+}
+
+
+

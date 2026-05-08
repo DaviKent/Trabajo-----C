@@ -34,7 +34,7 @@ function jugar() {
 
     if(encontrado){
         if (jugador == "x"){
-            jugador = "x"
+            jugador = "o"
         } else {
             jugador = "x"
         }

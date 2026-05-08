@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f0f4f8;
+    padding: 2rem;
+    color: #2c3e50;
+}
+
+h1{
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/*tarjeta de perfil*/
+.perfil{
+    width: 320px;
+    border: 1px solid #dee2e6;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden; /*recortar lo que se salga del borde*/
+}
+
+/*en la portada trabajar posicion relativa*/
+.portada{
+    height: 100px;
+    background-color: #2980b9;
+    position: relative; /*punto de referencia del avatar o icono*/
+}
+
+.avatar{
+    position: absolute;
+    bottom: -30px;
+    left: 1.5rem;
+    width: 64px;
+    height: 64px;
+    border-radius: 50px;
+    background-color: #eaf4fb;
+    display: flex;
+    align-items: center; /*centra verticalmente*/
+    justify-content: center; /*centra horizontalmente*/
+    font-size: 1.8rem;
+}
+
+.perfil-info{
+    padding: 2rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.perfil-nombre{
+    font-size: 1.15rem;
+    margin-bottom: 0.3rem;
+}
+
+.perfil-cargo{
+    font-size: 0.85rem;
+    color: #2980b0;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.perfil-estadistica{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.estadistica{
+    flex: 1; /*cada estadistica ocupa el mismo ancho*/
+    text-align: center;
+    padding-right: 1px solid #dee2e6;
+}
+
+.estadistica-num{
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.estadistica-descripcion{
+    display: block;
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    margin-top: 0.2rem;
+}
