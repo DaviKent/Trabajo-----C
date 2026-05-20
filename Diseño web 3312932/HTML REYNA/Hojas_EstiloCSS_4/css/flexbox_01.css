@@ -1,0 +1,244 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', sans-serif;
+    padding: 1rem; /*se ajusta o acomoda al tamaño de la pantalla*/
+}
+
+h1{
+    padding: 0.4rem 0.8rem;
+    margin: 1.5rem, 0.5rem;
+    font-size: 1rem;
+}
+
+h2{
+    font-size: 0.85rem;
+    color: #555;
+    margin: 0.8rem, 0.3rem;
+}
+
+.demo-sin-flex{
+    border: 1px dashed #999;
+    padding: 0.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.item{
+    border: 1px solid #333;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+}
+
+/*6.1 Contenedor e Items*/
+.demo-sin-flex{
+    display: block;
+}
+
+.demo-con-flex{
+    display: flex; /*activar la propiedad flexbox*/
+    gap: 0.3rem; /*espacio entre items*/
+}
+
+/*6.2 Flex-Direction*/
+.flex-row{
+    display: flex;
+    flex-direction: row; /*Fila de derecha a izquierda*/
+}
+
+.flex-row-reverse{
+    display: flex;
+    flex-direction: row-reverse; /*Fila de derecha a izquierda*/
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column; /*Columna de arriba a abajo*/
+    gap: 0.8rem;
+    width: 200px;
+    background-color: antiquewhite;
+    color: cadetblue;
+}
+
+.flex-column-reverse{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0.8rem;
+    width: 200px;
+    background-color: antiquewhite;
+    color: cadetblue;
+}
+
+/*Propiedades de contenedor*/
+.flex-nowrap{
+    display: flex;
+    flex-wrap: nowrap; /*no se envuelven - se pueden salir de su contenedor*/
+    width: 250px;
+    overflow: scroll; /*recorta lo que se sale*/
+}
+
+.flex-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    width: 250px;
+    gap: 0.3rem;
+}
+
+/*6.3 Justificar contenido*/
+.jc-flex-start{
+    display: flex;
+    justify-content: flex-start; /*Al inicio*/
+}
+
+.jc-flex-end{
+    display: flex;
+    justify-content: flex-end; /**/
+}
+
+.jc-center{
+    display: flex;
+    justify-content: center; /**/
+}
+
+.jc-space-between{ 
+    display: flex;
+    justify-content: space-between;
+}
+
+.jc-space-around{
+display: flex;
+justify-content: space-around;
+}
+
+.jc-space-evenly{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/*6.3 Aling items*/
+.ai-stretch{
+    display: flex;
+    align-items: stretch;
+    height: 120px;
+    gap: 0.3rem;
+    
+}
+
+.ai-flex-start{
+    display: flex;
+    align-items: flex-start;
+    height: 120px;
+    gap: 0.3rem;
+}
+
+/*6.3 GAP espacio entre items*/
+.gap-pequeno{
+    display: flex;
+    gap: 2rem;
+}
+
+.gap-ejes{
+    display: flex;
+    flex-grow: wrap;
+    row-gap: 1rem;
+    column-gap: 3rem;
+     width: 280px;
+}
+/*6.4 Flex-Grow*/
+.demo-grow{
+    display: flex;
+    gap: 0.3rem;
+}
+
+.grow-0{
+    flex-grow: 0; /*NO crece, ocupa solo su contenido*/
+    
+}
+
+.grow-1{
+    flex-grow: 1; /*Crece 1 en parte del espacio libre*/
+    
+}
+
+.grow-2{
+    flex-grow: 2; /*Crece el doble del glow 1*/
+    
+}
+
+.demo-shrink{
+    display: flex;
+    gap: 0.3rem;
+    width: 350px;
+    background-color: antiquewhite;
+}
+
+.shrink-1{
+    flex-shrink: 1; /*Si puede encogerse*/
+    width: 200px;
+}
+
+.shrink-0{
+    flex-shrink: 0; /*0 No puede encogerse - mantiene tamaño*/
+    width: 200px;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between; /*logo izquierda y menu derecha*/
+    align-items: center;
+    border: 1px solid #333;
+    padding: 0.5rem 1rem;
+}
+
+.nav-links{
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+/*tres columnas iguales*/
+.columnas{
+    display: flex;
+    gap: 0.5rem; /*es para un espacio*/
+}
+
+.columna{
+    flex: 1; /*cada columna ocupa la misma porcion*/
+}
+
+.columna-grande{
+    flex: 2; /*ocupa el doble de tamaño que 1*/
+}
+
+.columna-chica{
+    flex: 1;
+}
+
+.layout-sticky{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    border: 1px dashed #999;
+    gap: 0.3rem;
+    padding: 0.3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

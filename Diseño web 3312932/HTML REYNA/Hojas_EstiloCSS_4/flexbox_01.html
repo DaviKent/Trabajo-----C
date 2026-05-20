@@ -1,0 +1,319 @@
+HTML FLEXBOX
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema 6 — Flexbox</title>
+  <link rel="stylesheet" href="css/flexbox_01.css">
+</head>
+<body>
+
+<!-- ==========================================
+     6.1 CONTENEDOR E ÍTEMS
+     ========================================== -->
+<h1>6.1 Contenedor e ítems</h1>
+
+<h2>Sin flex — los divs se apilan en bloque</h2>
+<div class="demo-sin-flex">
+  <div class="item">Ítem 1</div>
+  <div class="item">Ítem 2</div>
+  <div class="item">Ítem 3</div>
+</div>
+
+<h2>Con display: flex — los hijos van en fila automáticamente</h2>
+<div class="demo-con-flex">
+  <div class="item">Ítem 1</div>
+  <div class="item">Ítem 2</div>
+  <div class="item">Ítem 3</div>
+</div>
+
+
+<!-- ==========================================
+     6.2 DIRECCIÓN Y EJES
+     ========================================== -->
+<h1>6.2 flex-direction</h1>
+
+<h2>row — fila izquierda a derecha (por defecto)</h2>
+<div class="flex-row">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+
+<h2>row-reverse — fila derecha a izquierda</h2>
+<div class="flex-row-reverse">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+
+<h2>column — columna de arriba a abajo</h2>
+<div class="flex-column">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+
+<h2>column-reverse — columna de abajo a arriba</h2>
+<div class="flex-column-reverse">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+
+
+<!-- ==========================================
+     6.3 PROPIEDADES DEL CONTENEDOR
+     ========================================== -->
+<h1>6.3 flex-wrap</h1>
+
+<h2>nowrap — no se envuelven aunque no quepan (por defecto)</h2>
+<div class="flex-nowrap">
+  <div class="item">Ítem 1</div>
+  <div class="item">Ítem 2</div>
+  <div class="item">Ítem 3</div>
+  <div class="item">Ítem 4</div>
+  <div class="item">Ítem 5</div>
+  <div class="item">Ítem 6</div>
+</div>
+
+<h2>wrap — bajan a la siguiente línea si no caben</h2>
+<div class="flex-wrap">
+  <div class="item">Ítem 1</div>
+  <div class="item">Ítem 2</div>
+  <div class="item">Ítem 3</div>
+  <div class="item">Ítem 4</div>
+  <div class="item">Ítem 5</div>
+  <div class="item">Ítem 6</div>
+</div>
+
+
+<h1>6.3 justify-content — eje principal</h1>
+
+<h2>flex-start — al inicio (por defecto)</h2>
+<div class="jc-flex-start">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div> 
+</div>
+
+<h2>flex-end — al final</h2>
+<div class="jc-flex-end">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+
+<h2>center — centrado</h2>
+<div class="jc-center">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+
+<h2>space-between — espacio entre ítems sin bordes</h2>
+<div class="jc-space-between">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+
+<h2>space-around — espacio alrededor (mitad en los bordes)</h2>
+<div class="jc-space-around">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+
+<h2>space-evenly — espacio exactamente igual en todos lados</h2>
+<div class="jc-space-evenly">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
+
+
+<h1>6.3 align-items — eje cruzado</h1>
+
+<h2>stretch — estira al alto del contenedor (por defecto)</h2>
+<div class="ai-stretch">
+  <div class="item">Corto</div>
+  <div class="item">Texto<br>más largo</div>
+  <div class="item">El más<br>largo<br>de todos</div>
+</div>
+
+<h2>flex-start — al inicio del eje cruzado</h2>
+<div class="ai-flex-start">
+  <div class="item">Corto</div>
+  <div class="item">Texto<br>más largo</div>
+  <div class="item">El más<br>largo<br>de todos</div>
+</div>
+
+<h2>flex-end — al final del eje cruzado</h2>
+<div class="ai-flex-end">
+  <div class="item">Corto</div>
+  <div class="item">Texto<br>más largo</div>
+  <div class="item">El más<br>largo<br>de todos</div>
+</div>
+
+<h2>center — centrado en el eje cruzado</h2>
+<div class="ai-center">
+  <div class="item">Corto</div>
+  <div class="item">Texto<br>más largo</div>
+  <div class="item">El más<br>largo<br>de todos</div>
+</div>
+
+
+<h1>6.3 gap — espacio entre ítems</h1>
+
+<h2>gap: 0.5rem — poco espacio</h2>
+<div class="gap-pequeno">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>°2Zas
+
+<h2>gap: 2rem — mucho espacio</h2>
+<div class="gap-grande">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
+
+<h2>row-gap: 1rem / column-gap: 3rem — diferente por eje</h2>
+<div class="gap-ejes">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
+</div>
+
+
+<!-- ==========================================
+     6.4 PROPIEDADES DE LOS ÍTEMS
+     ========================================== -->
+<h1>6.4 flex-grow — crecimiento</h1>
+
+<h2>grow: 0 / grow: 1 / grow: 2 — proporciones distintas</h2>
+<div class="demo-grow">
+  <div class="item grow-0">grow: 0</div>
+  <div class="item grow-1">grow: 1</div>
+  <div class="item grow-2">grow: 2</div>
+</div>
+
+
+<h1>6.4 flex-shrink — encogimiento</h1>
+
+<h2>shrink: 1 puede encoger — shrink: 0 no puede encoger</h2>
+<div class="demo-shrink">
+  <div class="item shrink-1">shrink: 1 — encoge</div>
+  <div class="item shrink-1">shrink: 1 — encoge</div>
+  <div class="item shrink-0">shrink: 0 — no encoge</div>
+</div>
+
+
+<h1>6.4 flex-basis — tamaño base</h1>
+
+<h2>auto / 200px / 33%</h2>
+<div class="demo-basis">
+  <div class="item basis-auto">basis: auto</div>
+  <div class="item basis-200">basis: 200px</div>
+  <div class="item basis-33">basis: 33%</div>
+</div>
+
+
+<h1>6.4 flex shorthand</h1>
+
+<h2>flex: 1 en todos — partes iguales</h2>
+<div class="demo-shorthand">
+  <div class="item flex-1">flex: 1</div>
+  <div class="item flex-1">flex: 1</div>
+  <div class="item flex-1">flex: 1</div>
+</div>
+
+<h2>flex: 0 0 200px — tamaño fijo, no crece ni encoge</h2>
+<div class="demo-shorthand">
+  <div class="item flex-fijo">fijo 200px</div>
+  <div class="item flex-fijo">fijo 200px</div>
+</div>
+
+
+<h1>6.4 align-self — alineación individual</h1>
+
+<h2>cada ítem con su propia alineación</h2>
+<div class="demo-align-self">
+  <div class="item">normal</div>
+  <div class="item self-start">self: start</div>
+  <div class="item self-center">self: center</div>
+  <div class="item self-end">self: end</div>
+  <div class="item">normal</div>
+</div>
+
+
+<h1>6.4 order — orden visual</h1>
+
+<h2>en el HTML van 1-2-3 pero el CSS los reordena</h2>
+<div class="demo-order">
+  <div class="item order-3">HTML 1 — order 3</div>
+  <div class="item order-1">HTML 2 — order 1</div>
+  <div class="item order-2">HTML 3 — order 2</div>
+</div>
+
+
+<!-- ==========================================
+     6.5 CENTRADO PERFECTO
+     ========================================== -->
+<h1>6.5 Centrado perfecto con Flexbox</h1>
+
+<h2>justify-content: center + align-items: center</h2>
+<div class="centrar-todo">
+  <div class="item">Centrado horizontal y vertical — 3 líneas de CSS</div>
+</div>
+
+
+<!-- ==========================================
+     6.6 PATRONES COMUNES
+     ========================================== -->
+<h1>6.6 Patrones comunes</h1>
+
+<h2>Navbar — logo izquierda, menú derecha</h2>
+<nav class="navbar">
+  <span class="logo">🐾 PetHome</span>
+  <ul class="nav-links">
+    <li><a href="#">Inicio</a></li>
+    <li><a href="#">Servicios</a></li>
+    <li><a href="#">Contacto</a></li>
+  </ul>
+</nav>
+
+<h2>Tres columnas iguales — flex: 1</h2>
+<div class="columnas">
+  <div class="item columna">Columna 1</div>
+  <div class="item columna">Columna 2</div>
+  <div class="item columna">Columna 3</div>
+</div>
+
+<h2>Columna grande + columna chica — flex: 2 y flex: 1</h2>
+<div class="columnas">
+  <div class="item columna-grande">Contenido — flex: 2</div>
+  <div class="item columna-chica">Sidebar — flex: 1</div>
+</div>
+
+<h2>Sticky footer — el main crece para empujar el footer abajo</h2>
+<div class="layout-sticky">
+  <div class="item sticky-header">Header</div>
+  <div class="item sticky-main">Main — flex: 1 — crece y empuja el footer</div>
+  <div class="item sticky-footer">Footer — siempre al fondo</div>
+</div>
+
+</body>
+</html>
