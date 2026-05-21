@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.featurette {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    max-width: 900px;
+    width: 100%;
+    padding: 40px 20px;
+}
+
+.featurette-content {
+    flex: 1;
+}
+
+.featurette-content h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.featurette-content h2 .subtitle {
+    display: block;
+    color: #aaa;
+    font-size: 2rem;
+}
+
+.featurette-content p {
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.7;
+    margin-top: 16px;
+}
+
+.featurette-image {
+    flex: 0 0 500px;
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+/* ── Encabezado de precios ── */
+.pricing-header {
+    text-align: center;
+    margin-bottom: 36px;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.pricing-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 12px;
+}
+
+.pricing-header p {
+    font-size: 0.92rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ── Grid de tarjetas ── */
+.pricing-cards {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+    padding: 0 20px 60px;
+}
+
+/* ── Tarjeta base ── */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 32px 28px;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.card .plan-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111;
+}
+
+.card .price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111;
+}
+
+.card ul {
+    list-style: none;
+    width: 100%;
+    margin: 8px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card ul li {
+    font-size: 0.88rem;
+    color: #aaa;
+}
+
+.card .btn {
+    margin-top: auto;
+    width: 100%;
+    padding: 10px;
+    background-color: #0d6efd;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.card .btn:hover {
+    background-color: #0b5ed7;
+}
+
+/* ── Tarjeta Enterprise (destacada) ── */
+.card.featured {
+    background-color: #4a5568;
+    border-color: #4a5568;
+}
+
+.card.featured .plan-name {
+    color: #ffffff;
+}
+
+.card.featured .price {
+    color: #ffffff;
+}
+
+.card.featured ul li {
+    color: #e2e8f0;
+}
