@@ -1,0 +1,64 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+body{
+    font-family: Arial;
+    background: #f4f4f4;
+    padding: 20px;
+}
+
+.portal-layout{
+    display: grid; /* activo el CSS grid */
+    grid-template-columns: 2fr 1fr; /* 3 columnas: 2fr = columna grande 1fr = col peque */
+    /* definir las areas a adaptarse */
+    grid-template-areas: 
+    "header header"
+    "nav nav"
+    "main sidebar"
+    "footer footer";
+    gap: 20px;
+}
+
+.portal-header{
+    grid-area: header; /* ubicar los elementos en esta area */
+    display: grid; /* convierta el header en grid */
+    grid-template-columns: 1fr auto; /* 1fr ocupa todo el tamaño */
+    align-items: center;
+    background: #1f2d3d;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* menu */
+.portal-nav{
+    grid-area: nav;
+    display: grid;
+    /* crear columnas automaticas adaptables */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+}
+
+.portal-nav a{
+    background: #fff;
+    padding: 12px;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none; /* para quitar la linea de las letras */
+    border-radius: 8px;
+    
+}
+
+.activo{
+    background: #c0392b !important;
+    color: white !important;
+
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temática 7 — CSS Grid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <span class="nav-logo">⊞ CSS Grid — T7</span>
+    <ul class="nav-menu">
+      <li><a href="#intro">7.1 Intro</a></li>
+      <li><a href="#columnas">7.2 Columnas</a></li>
+      <li><a href="#lineas">7.3 Líneas</a></li>
+      <li><a href="#areas">7.4 Areas</a></li>
+      <li><a href="#auto">7.5 Auto-fill</a></li>
+      <li><a href="#alineacion">7.6 Alineación</a></li>
+      <li><a href="#implicito">7.8 Implícito</a></li>
+      <li><a href="#vs">7.7 vs Flex</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-contenido">
+      <span class="hero-tag">Temática 7 · CSS3</span>
+      <h1 class="hero-titulo">CSS Grid<br/>Sistema de cuadrícula<br/>bidimensional</h1>
+      <p class="hero-sub">Flexbox controla <em>una dimensión</em>. Grid controla <strong>filas Y columnas</strong> al mismo tiempo — el sistema ideal para layouts de página completos.</p>
+      <a href="#intro" class="btn-hero">Comenzar →</a>
+    </div>
+  </header>
+
+  <main class="contenedor">
+
+    <!-- 7.1 INTRO -->
+    <section class="seccion" id="intro">
+      <div class="seccion-header">
+        <span class="seccion-num">7.1</span>
+        <h2>Activando Grid y vocabulario esencial</h2>
+      </div>
+      <p class="seccion-intro">Con <code>display: grid</code> el contenedor se convierte en <em>grid container</em> y sus hijos en <em>grid items</em>. A diferencia de Flexbox, los ítems no se mueven solos — Grid espera que definamos la cuadrícula.</p>
+
+      <div class="vocab-grid">
+        <div class="vocab-demo">
+          <div class="grid-demo-vocab">
+            <div class="gv-item">A</div>
+            <div class="gv-item">B</div>
+            <div class="gv-item">C</div>
+            <div class="gv-item">D</div>
+            <div class="gv-item">E</div>
+            <div class="gv-item">F</div>
+          </div>
+          <p class="demo-caption">Cuadrícula 3×2 — líneas numeradas desde 1</p>
+        </div>
+        <div class="vocab-lista">
+          <div class="vocab-item"><span class="vocab-dot d1"></span><div><strong>Grid line</strong><p>Líneas que dividen la cuadrícula, numeradas desde 1 (también -1 desde el final).</p></div></div>
+          <div class="vocab-item"><span class="vocab-dot d2"></span><div><strong>Grid track</strong><p>Espacio entre dos líneas adyacentes — una fila o una columna completa.</p></div></div>
+          <div class="vocab-item"><span class="vocab-dot d3"></span><div><strong>Grid cell</strong><p>La intersección de una fila y una columna. La unidad mínima del grid.</p></div></div>
+          <div class="vocab-item"><span class="vocab-dot d4"></span><div><strong>Gap</strong><p>Espacio entre celdas. Se controla con <code>gap</code>, <code>row-gap</code> o <code>column-gap</code>.</p></div></div>
+        </div>
+      </div>
+
+      <pre class="codigo"><span class="c-com">/* Una sola línea activa Grid */</span>
+<span class="c-sel">.contenedor</span> {
+  <span class="c-prop">display</span>: <span class="c-val">grid</span>;
+  <span class="c-com">/* Los hijos directos son automáticamente grid items */</span>
+  <span class="c-com">/* Pero sin columnas/filas definidas no se ve nada diferente todavía */</span>
+}</pre>
+    </section>
+
+    <!-- 7.2 COLUMNAS Y FILAS -->
+    <section class="seccion" id="columnas">
+      <div class="seccion-header">
+        <span class="seccion-num">7.2</span>
+        <h2>Definiendo columnas y filas — la unidad fr</h2>
+      </div>
+      <p class="seccion-intro"><code>grid-template-columns</code> y <code>grid-template-rows</code> definen la estructura. La unidad <code>fr</code> es exclusiva de Grid y representa una fracción del espacio disponible.</p>
+
+      <div class="demos-fila">
+        <div class="demo-bloque">
+          <p class="demo-titulo">3 columnas — 200px fijos</p>
+          <div class="grid-px"><div class="gi">1</div><div class="gi">2</div><div class="gi">3</div><div class="gi">4</div><div class="gi">5</div><div class="gi">6</div></div>
+          <pre class="codigo-mini"><span class="c-prop">grid-template-columns</span>: <span class="c-val">200px 200px 200px</span>;</pre>
+        </div>
+        <div class="demo-bloque">
+          <p class="demo-titulo">1fr 2fr 1fr — proporcional</p>
+          <div class="grid-fr"><div class="gi">1fr</div><div class="gi gi-2fr">2fr</div><div class="gi">1fr</div><div class="gi">4</div><div class="gi gi-2fr">5</div><div class="gi">6</div></div>
+          <pre class="codigo-mini"><span class="c-prop">grid-template-columns</span>: <span class="c-val">1fr 2fr 1fr</span>;</pre>
+        </div>
+        <div class="demo-bloque">
+          <p class="demo-titulo">repeat(3, 1fr) — forma corta</p>
+          <div class="grid-repeat"><div class="gi">1</div><div class="gi">2</div><div class="gi">3</div><div class="gi">4</div><div class="gi">5</div><div class="gi">6</div></div>
+          <pre class="codigo-mini"><span class="c-prop">grid-template-columns</span>: <span class="c-val">repeat(3, 1fr)</span>;</pre>
+        </div>
+        <div class="demo-bloque">
+          <p class="demo-titulo">200px + 1fr — sidebar fija</p>
+          <div class="grid-sidebar-demo"><div class="gi gi-sidebar">200px</div><div class="gi gi-main">1fr</div><div class="gi gi-sidebar">200px</div><div class="gi gi-main">1fr</div></div>
+          <pre class="codigo-mini"><span class="c-prop">grid-template-columns</span>: <span class="c-val">200px 1fr</span>;</pre>
+        </div>
+      </div>
+
+      <div class="alerta-concepto">
+        <h3>La unidad <code>fr</code> — el superpoder de Grid</h3>
+        <p>Representa una fracción del espacio disponible <em>después</em> de restar gaps y columnas fijas.</p>
+        <div class="fr-demo">
+          <div class="fr-barra">
+            <div class="fr-col fr-c1">1fr · 25%</div>
+            <div class="fr-col fr-c2">2fr · 50%</div>
+            <div class="fr-col fr-c1">1fr · 25%</div>
+          </div>
+        </div>
+        <pre class="codigo-mini" style="margin-top:0.8rem"><span class="c-com">/* Con 960px: 240px | 480px | 240px */</span>
+<span class="c-prop">grid-template-columns</span>: <span class="c-val">1fr 2fr 1fr</span>;</pre>
+      </div>
+
+      <div class="demos-fila" style="margin-top:1.5rem">
+        <div class="demo-bloque"><p class="demo-titulo">Sin gap</p><div class="grid-sin-gap"><div class="gi">1</div><div class="gi">2</div><div class="gi">3</div><div class="gi">4</div><div class="gi">5</div><div class="gi">6</div></div></div>
+        <div class="demo-bloque"><p class="demo-titulo">gap: 1rem</p><div class="grid-con-gap"><div class="gi">1</div><div class="gi">2</div><div class="gi">3</div><div class="gi">4</div><div class="gi">5</div><div class="gi">6</div></div></div>
+        <div class="demo-bloque"><p class="demo-titulo">row-gap / column-gap distintos</p><div class="grid-gap-distinto"><div class="gi">1</div><div class="gi">2</div><div class="gi">3</div><div class="gi">4</div><div class="gi">5</div><div class="gi">6</div></div><pre class="codigo-mini"><span class="c-prop">row-gap</span>: <span class="c-val">0.3rem</span>; <span class="c-prop">column-gap</span>: <span class="c-val">2rem</span>;</pre></div>
+      </div>
+    </section>
+
+    <!-- 7.3 LÍNEAS -->
+    <section class="seccion" id="lineas">
+      <div class="seccion-header">
+        <span class="seccion-num">7.3</span>
+        <h2>Posicionando ítems con líneas</h2>
+      </div>
+      <p class="seccion-intro">Por defecto Grid coloca los ítems automáticamente. Con <code>grid-column</code> y <code>grid-row</code> puedes posicionar cualquier ítem usando los números de línea.</p>
+
+      <div class="demos-fila">
+        <div class="demo-bloque">
+          <p class="demo-titulo">grid-column: 1 / 3 — 2 columnas</p>
+          <div class="grid-lineas-1">
+            <div class="gi gl-span2">1 / 3</div>
+            <div class="gi">C</div><div class="gi">D</div><div class="gi">E</div><div class="gi">F</div>
+          </div>
+          <pre class="codigo-mini"><span class="c-prop">grid-column</span>: <span class="c-val">1 / 3</span>;</pre>
+        </div>
+        <div class="demo-bloque">
+          <p class="demo-titulo">grid-column: 1 / -1 — fila completa</p>
+          <div class="grid-lineas-2">
+            <div class="gi gl-full">1 / -1 completa</div>
+            <div class="gi">B</div><div class="gi">C</div><div class="gi">D</div>
+          </div>
+          <pre class="codigo-mini"><span class="c-prop">grid-column</span>: <span class="c-val">1 / -1</span>;</pre>
+        </div>
+        <div class="demo-bloque">
+          <p class="demo-titulo">grid-row: span 2 — 2 filas</p>
+          <div class="grid-lineas-3">
+            <div class="gi gl-rowspan">span 2 filas</div>
+            <div class="gi">B</div><div class="gi">C</div><div class="gi">D</div><div class="gi">E</div>
+          </div>
+          <pre class="codigo-mini"><span class="c-prop">grid-row</span>: <span class="c-val">span 2</span>;</pre>
+        </div>
+      </div>
+
+      <pre class="codigo"><span class="c-com">/* Posicionando con números de línea */</span>
+<span class="c-sel">.item</span> {
+  <span class="c-prop">grid-column</span>: <span class="c-val">1 / 3</span>;    <span class="c-com">/* línea 1 → línea 3 (2 columnas) */</span>
+  <span class="c-prop">grid-column</span>: <span class="c-val">1 / -1</span>;   <span class="c-com">/* primera → última línea (fila completa) */</span>
+  <span class="c-prop">grid-column</span>: <span class="c-val">span 2</span>;   <span class="c-com">/* ocupa 2 columnas desde donde esté */</span>
+  <span class="c-prop">grid-row</span>: <span class="c-val">span 2</span>;      <span class="c-com">/* ocupa 2 filas */</span>
+}</pre>
+    </section>
+
+    <!-- 7.4 AREAS -->
+    <section class="seccion" id="areas">
+      <div class="seccion-header">
+        <span class="seccion-num">7.4</span>
+        <h2>Grid Template Areas — el mapa visual del layout</h2>
+      </div>
+      <p class="seccion-intro">La característica más legible de Grid. El CSS <strong>dibuja</strong> el layout con nombres. Un punto <code>.</code> deja una celda vacía.</p>
+
+      <div class="dos-columnas-areas">
+        <div>
+          <p class="demo-titulo">Layout de página completo</p>
+          <div class="grid-areas-demo">
+            <div class="ga-header">header</div>
+            <div class="ga-sidebar">sidebar</div>
+            <div class="ga-main">main</div>
+            <div class="ga-footer">footer</div>
+          </div>
+        </div>
+        <div>
+          <p class="demo-titulo">CSS que genera ese layout</p>
+          <pre class="codigo"><span class="c-sel">.pagina</span> {
+  <span class="c-prop">display</span>: <span class="c-val">grid</span>;
+  <span class="c-prop">grid-template-columns</span>: <span class="c-val">250px 1fr</span>;
+  <span class="c-prop">grid-template-rows</span>: <span class="c-val">70px 1fr 60px</span>;
+  <span class="c-prop">grid-template-areas</span>:
+    <span class="c-val">"header  header"</span>
+    <span class="c-val">"sidebar main"</span>
+    <span class="c-val">"footer  footer"</span>;
+}
+
+<span class="c-sel">.cabecera</span>  { <span class="c-prop">grid-area</span>: <span class="c-val">header</span>;  }
+<span class="c-sel">.barra-lat</span> { <span class="c-prop">grid-area</span>: <span class="c-val">sidebar</span>; }
+<span class="c-sel">.contenido</span> { <span class="c-prop">grid-area</span>: <span class="c-val">main</span>;    }
+<span class="c-sel">.pie</span>       { <span class="c-prop">grid-area</span>: <span class="c-val">footer</span>;  }</pre>
+          <div class="alerta-mini">¿Ves cómo el CSS "dibuja" el layout? Cada fila de <code>grid-template-areas</code> es una fila del grid.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.5rem">
+        <p class="demo-titulo">Con celda vacía — el punto <code>.</code></p>
+        <div class="grid-areas-punto">
+          <div class="gap-h">header</div>
+          <div class="gap-s">sidebar</div>
+          <div class="gap-m">main</div>
+          <div class="gap-vacio">· vacío ·</div>
+          <div class="gap-f">footer</div>
+        </div>
+        <pre class="codigo-mini" style="margin-top:0.8rem"><span class="c-prop">grid-template-areas</span>:
+  <span class="c-val">"header  header header"</span>
+  <span class="c-val">"sidebar main   ."</span>     <span class="c-com">/* punto = celda vacía */</span>
+  <span class="c-val">"footer  footer footer"</span>;</pre>
+      </div>
+    </section>
+
+    <!-- 7.5 AUTO-FILL -->
+    <section class="seccion" id="auto">
+      <div class="seccion-header">
+        <span class="seccion-num">7.5</span>
+        <h2>repeat(), auto-fill y auto-fit</h2>
+      </div>
+      <p class="seccion-intro">Grids que se adaptan automáticamente. <strong>Sin media queries</strong>, las columnas se reorganizan solas. La técnica más usada en galerías y grids de tarjetas.</p>
+
+      <div class="demo-bloque" style="margin-bottom:1.5rem">
+        <p class="demo-titulo">auto-fill con minmax — achica la ventana para verlo</p>
+        <div class="grid-autofill">
+          <div class="gi gi-card">Tarjeta 1</div><div class="gi gi-card">Tarjeta 2</div>
+          <div class="gi gi-card">Tarjeta 3</div><div class="gi gi-card">Tarjeta 4</div>
+          <div class="gi gi-card">Tarjeta 5</div><div class="gi gi-card">Tarjeta 6</div>
+        </div>
+        <pre class="codigo-mini"><span class="c-prop">grid-template-columns</span>: <span class="c-val">repeat(auto-fill, minmax(180px, 1fr))</span>;</pre>
+      </div>
+
+      <div class="comparativa-auto">
+        <div class="ca-item"><h4>auto-fill</h4><p>Crea tantas columnas como quepan. Las vacías siguen ocupando espacio.</p><pre class="codigo-mini"><span class="c-val">repeat(auto-fill, minmax(200px, 1fr))</span></pre></div>
+        <div class="ca-item"><h4>auto-fit</h4><p>Igual pero colapsa columnas vacías. Las que tienen contenido se estiran.</p><pre class="codigo-mini"><span class="c-val">repeat(auto-fit, minmax(200px, 1fr))</span></pre></div>
+        <div class="ca-item"><h4>minmax(min, max)</h4><p>Tamaño mínimo y máximo para la columna. <code>minmax(200px, 1fr)</code> = mínimo 200px, máximo flexible.</p><pre class="codigo-mini"><span class="c-val">minmax(200px, 1fr)</span></pre></div>
+      </div>
+    </section>
+
+    <!-- 7.6 ALINEACIÓN -->
+    <section class="seccion" id="alineacion">
+      <div class="seccion-header">
+        <span class="seccion-num">7.6</span>
+        <h2>Alineación en Grid</h2>
+      </div>
+      <p class="seccion-intro">Dos ejes: <code>justify</code> (horizontal) y <code>align</code> (vertical). Las propiedades del <strong>contenedor</strong> afectan todos los ítems; las del <strong>ítem</strong> sobrescriben para uno específico.</p>
+
+      <div class="demos-fila">
+        <div class="demo-bloque"><p class="demo-titulo">justify-items: start</p><div class="grid-ji-start"><div class="gi gi-small">A</div><div class="gi gi-small">B</div><div class="gi gi-small">C</div></div></div>
+        <div class="demo-bloque"><p class="demo-titulo">justify-items: center</p><div class="grid-ji-center"><div class="gi gi-small">A</div><div class="gi gi-small">B</div><div class="gi gi-small">C</div></div></div>
+        <div class="demo-bloque"><p class="demo-titulo">justify-items: end</p><div class="grid-ji-end"><div class="gi gi-small">A</div><div class="gi gi-small">B</div><div class="gi gi-small">C</div></div></div>
+        <div class="demo-bloque"><p class="demo-titulo">align-self por ítem</p><div class="grid-ai-demo"><div class="gi gi-small ai-start">start</div><div class="gi gi-small ai-center">center</div><div class="gi gi-small ai-end">end</div></div></div>
+      </div>
+
+      <pre class="codigo"><span class="c-com">/* En el CONTENEDOR — afecta todos los ítems */</span>
+<span class="c-sel">.grid</span> {
+  <span class="c-prop">justify-items</span>: <span class="c-val">start | center | end | stretch</span>;  <span class="c-com">/* horizontal en su celda */</span>
+  <span class="c-prop">align-items</span>: <span class="c-val">start | center | end | stretch</span>;   <span class="c-com">/* vertical en su celda */</span>
+  <span class="c-prop">place-items</span>: <span class="c-val">center</span>;   <span class="c-com">/* shorthand: align + justify */</span>
+}
+<span class="c-com">/* En el ÍTEM — sobrescribe para ese elemento */</span>
+<span class="c-sel">.item</span> { <span class="c-prop">justify-self</span>: <span class="c-val">center</span>; <span class="c-prop">align-self</span>: <span class="c-val">end</span>; }</pre>
+    </section>
+
+    <!-- 7.8 IMPLÍCITO -->
+    <section class="seccion" id="implicito">
+      <div class="seccion-header">
+        <span class="seccion-num">7.8</span>
+        <h2>Grid implícito: filas automáticas</h2>
+      </div>
+      <p class="seccion-intro">Cuando hay más ítems de los definidos, Grid crea <strong>filas implícitas</strong>. Con <code>grid-auto-rows</code> controlas su alto.</p>
+
+      <div class="demos-fila">
+        <div class="demo-bloque"><p class="demo-titulo">Sin grid-auto-rows</p><div class="grid-implicito-sin"><div class="gi">1</div><div class="gi">2</div><div class="gi">3</div><div class="gi">4 implícito</div><div class="gi">5 implícito</div></div></div>
+        <div class="demo-bloque"><p class="demo-titulo">grid-auto-rows: 80px</p><div class="grid-implicito-80"><div class="gi">1</div><div class="gi">2</div><div class="gi">3</div><div class="gi">4</div><div class="gi">5</div></div></div>
+        <div class="demo-bloque"><p class="demo-titulo">minmax(60px, auto)</p><div class="grid-implicito-minmax"><div class="gi">1</div><div class="gi">2</div><div class="gi">3</div><div class="gi">4<br>Más<br>alto</div><div class="gi">5</div></div></div>
+      </div>
+
+      <pre class="codigo"><span class="c-sel">.grid</span> {
+  <span class="c-prop">grid-template-columns</span>: <span class="c-val">repeat(3, 1fr)</span>;
+  <span class="c-prop">grid-auto-rows</span>: <span class="c-val">80px</span>;               <span class="c-com">/* altura fija */</span>
+  <span class="c-prop">grid-auto-rows</span>: <span class="c-val">minmax(60px, auto)</span>;  <span class="c-com">/* mínimo 60px, crece con el contenido */</span>
+}</pre>
+    </section>
+
+    <!-- 7.7 VS FLEXBOX -->
+    <section class="seccion" id="vs">
+      <div class="seccion-header">
+        <span class="seccion-num">7.7</span>
+        <h2>Grid vs Flexbox: cuándo usar cada uno</h2>
+      </div>
+      <p class="seccion-intro">No son rivales — son <strong>complementarios</strong>. Regla de oro: <em>Flexbox para componentes, Grid para layouts de página</em>.</p>
+
+      <div class="vs-tabla">
+        <div class="vs-header"><span>Situación</span><span class="vs-flex">Flexbox</span><span class="vs-grid">Grid</span></div>
+        <div class="vs-fila"><span>Barra de navegación</span><span class="vs-check">✓</span><span></span></div>
+        <div class="vs-fila"><span>Tarjetas en fila simple</span><span class="vs-check">✓</span><span></span></div>
+        <div class="vs-fila"><span>Layout de página completo</span><span></span><span class="vs-check">✓</span></div>
+        <div class="vs-fila"><span>Galería de fotos</span><span></span><span class="vs-check">✓</span></div>
+        <div class="vs-fila"><span>Formulario con campos alineados</span><span></span><span class="vs-check">✓</span></div>
+        <div class="vs-fila"><span>Componentes internos (badges, botones)</span><span class="vs-check">✓</span><span></span></div>
+        <div class="vs-fila vs-ambos"><span>Layouts modernos complejos</span><span class="vs-check">✓ dentro</span><span class="vs-check">✓ estructura</span></div>
+      </div>
+
+      <div class="vs-regla">
+        <div class="vs-r-flex"><h4>Flexbox piensa desde el ítem</h4><p>"¿Cuánto espacio ocupa <em>este elemento</em>?"</p><p>→ Una dimensión (fila OR columna)</p></div>
+        <div class="vs-separador">↔</div>
+        <div class="vs-r-grid"><h4>Grid piensa desde el contenedor</h4><p>"¿Cómo divido <em>este espacio</em> en zonas?"</p><p>→ Dos dimensiones (filas AND columnas)</p></div>
+      </div>
+    </section>
+
+    <!-- DEMO DASHBOARD -->
+    <section class="seccion seccion-apendice" id="apendice">
+      <div class="seccion-header">
+        <span class="seccion-num apendice-num">Demo</span>
+        <h2>Grid en acción — Dashboard con template-areas</h2>
+      </div>
+      <p class="seccion-intro">Todo lo visto en un layout real. Header, sidebar, widgets, contenido principal y footer — cada zona definida con <code>grid-template-areas</code>.</p>
+
+      <div class="dashboard-demo">
+        <div class="dash-header"><strong>Dashboard SENA</strong><span>Bienvenido, Instructor</span></div>
+        <div class="dash-sidebar"><p>📊 Resumen</p><p>👥 Aprendices</p><p>📁 Materiales</p><p>⚙ Config</p></div>
+        <div class="dash-widget1"><strong>Aprendices</strong><span class="dash-num">28</span></div>
+        <div class="dash-widget2"><strong>Actividades</strong><span class="dash-num">12</span></div>
+        <div class="dash-widget3"><strong>Entregas</strong><span class="dash-num">7</span></div>
+        <div class="dash-main"><p><strong>Área principal — grid-area: main</strong></p><p style="font-size:0.85rem;color:#666;margin-top:0.5rem">El CSS define exactamente dónde va cada sección usando grid-template-areas.</p></div>
+        <div class="dash-footer">© 2025 SENA CTPI · CSS Grid — Temática 7</div>
+      </div>
+
+      <pre class="codigo" style="margin-top:1rem"><span class="c-sel">.dashboard</span> {
+  <span class="c-prop">display</span>: <span class="c-val">grid</span>;
+  <span class="c-prop">grid-template-columns</span>: <span class="c-val">160px 1fr 1fr 1fr</span>;
+  <span class="c-prop">grid-template-rows</span>: <span class="c-val">54px 80px 1fr 40px</span>;
+  <span class="c-prop">grid-template-areas</span>:
+    <span class="c-val">"header  header  header  header"</span>
+    <span class="c-val">"sidebar widget1 widget2 widget3"</span>
+    <span class="c-val">"sidebar main    main    main"</span>
+    <span class="c-val">"footer  footer  footer  footer"</span>;
+  <span class="c-prop">gap</span>: <span class="c-val">0.8rem</span>;
+}</pre>
+    </section>
+
+    <!-- RESUMEN -->
+    <section class="seccion resumen-final">
+      <h2>Resumen — Temática 7</h2>
+      <div class="resumen-grid">
+        <div class="r-item"><span class="r-icon">⊞</span><h4>display: grid</h4><p>Activa el grid. Sin columnas/filas definidas los ítems se apilan igual que antes.</p></div>
+        <div class="r-item"><span class="r-icon">fr</span><h4>Unidad fr</h4><p>Fracción del espacio disponible. <code>repeat(3, 1fr)</code> = 3 columnas exactamente iguales.</p></div>
+        <div class="r-item"><span class="r-icon">1/3</span><h4>Líneas</h4><p><code>grid-column: 1 / 3</code> posiciona entre línea 1 y 3. <code>-1</code> es la última línea.</p></div>
+        <div class="r-item"><span class="r-icon">▦</span><h4>Template areas</h4><p>El CSS "dibuja" el layout con nombres. La forma más legible para layouts complejos.</p></div>
+        <div class="r-item"><span class="r-icon">∞</span><h4>auto-fill/fit</h4><p><code>repeat(auto-fill, minmax(200px,1fr))</code> — columnas responsivas sin media queries.</p></div>
+        <div class="r-item"><span class="r-icon">↔↕</span><h4>Alineación</h4><p><code>justify-items</code> + <code>align-items</code>. <code>place-items: center</code> = centrado perfecto.</p></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Temática 7 — CSS Grid · CSS3 · SENA CTPI 2025</p>
+  </footer>
+
+</body>
+</html>
