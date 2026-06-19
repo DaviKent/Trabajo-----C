@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://picsum.photos/400" class="aspect-auto w-48">
+     <img src="https://picsum.photos/400" class="aspect-video w-48">
+     <img src="https://picsum.photos/600/200" class="w-48 h-48 object-cover">
+       <img src="https://picsum.photos/600/200" class="w-48 h-48 object-contain">
+
+
+       <div class="w-32 h-20 overflow-scroll bg-amber-50">
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Non ullam suscipit quia reprehenderit laborum delectus! 
+        Voluptatem architecto velit beatae numquam perspiciatis labore. 
+        Reprehenderit error aperiam et culpa, earum quas ea.
+    </div>
+    4. display
+----------------------------
+<span class="block bg-blue-200 mb-2">block</span>
+<span class="inline-block bg-red-200">inline-block</span>
+<span class="hidden">no se ve</span>
+
+Etapa 2 — Spacing (muy usado)
+------------------------------
+🔗 padding → https://tailwindcss.com/docs/padding
+🔗 margin → https://tailwindcss.com/docs/margin
+------------------------------
+<div class="p-2 bg-red-200">p-2</div>
+<div class="p-8 bg-blue-200">p-8</div>
+<div class="px-10 py-12 bg-green-200">px-4 py-2</div>
+
+Etapa 3 — Typography (muy visual)
+🔗 https://tailwindcss.com/docs/font-size
+---------------------------------
+<p class="text-xs">Extra small</p>
+<p class="text-sm">Small</p>
+<p class="text-base">Base</p>
+<p class="text-xl">XL</p>
+<p class="text-4xl font-bold">4XL Bold</p>
+SIZING
+🔗 https://tailwindcss.com/docs/width
+--------------------------------------
+<h2 class="text-lg font-semibold mt-8 mb-2">Sizing</h2>
+
+<div class="w-16 h-8 bg-red-300 mb-2">w-16 h-8</div>
+<div class="w-32 h-8 bg-blue-300 mb-2">w-32 h-8</div>
+<div class="w-64 h-8 bg-green-300 mb-2">w-64 h-8</div>
+<div class="w-full h-8 bg-yellow-300 mb-2">w-full</div>
+<div class="w-1/2 h-8 bg-purple-300 mb-2">w-1/2</div>
+
+BACKGROUNDS
+🔗 https://tailwindcss.com/docs/background-color
+---------------------------------------------------------
+<h2 class="text-lg font-semibold mt-8 mb-2">Backgrounds</h2>
+
+<div class="bg-blue-500 p-4 mb-2 text-white">bg-blue-500</div>
+<div class="bg-gradient-to-r from-blue-500 to-purple-500 p-4 mb-2 text-white">
+  gradiente izquierda a derecha
+</div>
+<div class="bg-gradient-to-b from-green-400 to-blue-500 p-4 mb-2 text-white">
+  gradiente arriba a abajo
+</div>
+
+BORDERS
+🔗 https://tailwindcss.com/docs/border-width
+--------------------------------------------------------
+<h2 class="text-lg font-semibold mt-8 mb-2">Borders</h2>
+
+<div class="border p-4 mb-2">border (1px)</div>
+<div class="border-2 border-blue-500 p-4 mb-2">border-2 azul</div>
+<div class="border-4 border-red-500 rounded-xl p-4 mb-2">border-4 redondeado</div>
+<div class="border-4 border-dashed border-green-500 p-4 mb-2">border dashed</div>
+<div class="rounded-full bg-gray-200 w-24 h-24 flex items-center justify-center mb-2">
+  rounded-full
+</div>
+</div>
+
+EFFECTS
+🔗 https://tailwindcss.com/docs/box-shadow
+-------------------------------------------
+<h2 class="text-lg font-semibold mt-8 mb-2">Effects</h2>
+
+<div class="shadow-sm bg-white p-4 mb-4">shadow-sm</div>
+<div class="shadow-md bg-white p-4 mb-4">shadow-md</div>
+<div class="shadow-xl bg-white p-4 mb-4">shadow-xl</div>
+<div class="shadow-2xl bg-white p-4 mb-4">shadow-2xl</div>
+<div class="opacity-100 bg-blue-500 text-white p-4 mb-2">opacity-100</div>
+<div class="opacity-50 bg-blue-500 text-white p-4 mb-2">opacity-50</div>
+<div class="opacity-25 bg-blue-500 text-white p-4 mb-2">opacity-25</div>
+
+FLEXBOX & GRID
+🔗 https://tailwindcss.com/docs/flex
+---------------------------------------
+<h2 class="text-lg font-semibold mt-8 mb-2">Flexbox</h2>
+
+<div class="flex flex-col justify-center bg-gray-100 p-4 mb-4">
+  <div class="bg-blue-400 p-3">1</div>
+  <div class="bg-blue-400 p-3">2</div>
+  <div class="bg-blue-400 p-3">3</div>
+</div>
+
+<div class="flex justify-center gap-4 bg-gray-100 p-4 mb-4">
+  <div class="bg-green-400 p-3">1</div>
+  <div class="bg-green-400 p-3">2</div>
+  <div class="bg-green-400 p-3">3</div>
+</div>
+
+<div class="flex flex-col gap-2 bg-gray-100 p-4 mb-4">
+  <div class="bg-red-400 p-3">1</div>
+  <div class="bg-red-400 p-3">2</div>
+  <div class="bg-red-400 p-3">3</div>
+</div>
+
+<h2 class="text-lg font-semibold mt-8 mb-2">Grid</h2>
+
+<div class="grid grid-cols-2 gap-4 bg-gray-100 p-4 mb-4">
+  <div class="bg-yellow-400 p-4">1</div>
+  <div class="bg-yellow-400 p-4">2</div>
+  <div class="bg-yellow-400 p-4">3</div>
+  <div class="bg-yellow-400 p-4">4</div>
+</div>
+
+<div class="grid grid-cols-4 gap-4 bg-gray-100 p-4 mb-4">
+  <div class="bg-purple-400 p-4">1</div>
+  <div class="bg-purple-400 p-4">2</div>
+  <div class="bg-purple-400 p-4">3</div>
+  <div class="bg-purple-400 p-4">4</div>
+</div>
+
+TRANSITIONS
+🔗 https://tailwindcss.com/docs/transition-property
+html<h2 class="text-lg font-semibold mt-8 mb-2">Transitions</h2>
+
+<button class="bg-blue-500 text-white px-6 py-3 rounded-lg 
+               transition-colors duration-300 hover:bg-blue-800 mb-4">
+  Hover — cambia color suave
+</button>
+
+<button class="bg-green-500 text-white px-6 py-3 rounded-lg 
+               transition-all duration-300 hover:scale-110 mb-4">
+  Hover — crece
+</button>
+
+<button class="bg-red-500 text-white px-6 py-3 rounded-lg 
+               transition-all duration-500 hover:bg-red-800 
+               hover:scale-105 hover:shadow-xl mb-4">
+  Hover — todo junto
+</button>
+</body>
+</html>
