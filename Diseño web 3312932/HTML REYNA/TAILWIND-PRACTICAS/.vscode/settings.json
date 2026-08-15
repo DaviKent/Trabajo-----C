@@ -1,12 +1,8 @@
 {
-  "editor.quickSuggestions": {
-    "strings": "on"
-  },
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "liveServer.settings.watchFiles": [
+    "*/.html",
+    "*/.css",
+    "src/*.css"
+  ],
+  "liveServer.settings.fullReload": true
 }

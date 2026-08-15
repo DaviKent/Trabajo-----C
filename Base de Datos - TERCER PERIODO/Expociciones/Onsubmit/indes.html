@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento onsubmi</title>
+    <script src="indes.js"></script>
+</head>
+<body>
+    <!-- adriana -->
+    <h2>Evento onsubmi</h2>
+
+    <form onsubmit="capturarDatos(event)">
+        <label for="Correo">Correo</label><br>
+        <input type="email" id="Correo"><br><br>
+
+        <label for="Mensaje">Mensaje</label><br>
+        <textarea id="Mensaje"></textarea><br>
+    
+        <button type="submit">Enviar</button>
+    </form>
+
+    <h3>Información capturada: </h3>
+    <p id="resultado"></p>
+</body>
+</html>
