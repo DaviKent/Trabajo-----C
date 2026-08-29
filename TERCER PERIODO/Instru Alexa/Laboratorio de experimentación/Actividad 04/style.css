@@ -1,0 +1,26 @@
+
+body {
+    font-family: Arial;
+    text-align: center;
+}
+
+.parrafo {
+    margin: 10px;
+}
+
+.especial {
+    font-weight: bold;
+}
+
+.imagen {
+    margin: 10px;
+}
+
+.boton {
+    margin: 5px;
+    padding: 10px;
+}
+
+button {
+    cursor: pointer;
+}

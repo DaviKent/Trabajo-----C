@@ -1,0 +1,34 @@
+body {
+font-family: Arial;
+text-align: center;
+}
+
+.videojuegos {
+display: flex;
+justify-content: center;
+gap: 20px;
+flex-wrap: wrap;
+}
+
+.juego {
+border: 1px solid black;
+padding: 15px;
+width: 200px;
+}
+
+.accion {
+background-color: lightcoral;
+}
+
+.aventura {
+background-color: lightblue;
+}
+
+.deportes {
+background-color: lightgreen;
+}
+
+button {
+margin: 5px;
+padding: 8px;
+}
