@@ -10,8 +10,8 @@ boton.addEventListener("click", ()=>{
     })
 })
 
-boton2.addEventListener("click", ()=>{
-    Swal.fire({
+boton2.addEventListener("click", async ()=>{
+    let resultado = await Swal.fire({
         title:"Desea Eliminar",
         text:"Esta seguro que desea Eliminar",
         icon:"warning",
@@ -20,6 +20,12 @@ boton2.addEventListener("click", ()=>{
         cancelButtonText:"No, salir alerta"
     })
     console.log(resultado.isConfirmed)
+    if (resultado.isConfirmed==true){
+        alert("registro eliminado")
+    } 
+    else{
+        alert("registro no eliminado")
+    }   
     //Consultar las funciones asyncronas y sincronicas en javascript
     //en un documento word en tabla de las dos
     //Funcionalidad y cuando se usa cada una
