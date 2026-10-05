@@ -1,22 +1,21 @@
-import './App.css'
+function PanelDerecho(props) {
 
-function PanelDerecho() {
   return (
-    <aside className="panel-derecho">
-      <div className="panel-imagen"></div>
+    <div className="panel">
 
-      <span className="panel-categoria">Desarrollo Frontend</span>
-      <h3 className="panel-titulo">Detalle del servicio</h3>
+      <div className="panel-imagen">
+        🖥️
+      </div>
 
-      <div className="panel-estrellas">★★★★☆</div>
+      <h3>{props.titulo}</h3>
 
-      <p className="panel-descripcion">
-        Construcción de interfaces con React aplicando componentes
-        reutilizables, props y estilos CSS organizados.
-      </p>
+      <p>★★★★☆</p>
 
-      <button className="panel-boton">Ver más</button>
-    </aside>
+      <p>Información del servicio seleccionado.</p>
+
+      <button>Ver más</button>
+
+    </div>
   )
 }
 

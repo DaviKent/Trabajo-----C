@@ -1,53 +1,74 @@
-import Card from './Card'
-import './App.css'
+import Card from './Card.jsx'
 
-function Dashboard({ servicios }) {
-  const filtros = ['Todos', 'Diseño', 'Desarrollo', 'Soporte']
+function Dashboard(props) {
+
+  const servicios = [
+    {
+      id: 1,
+      titulo: "Diseño web",
+      descripcion: "Interfaces modernas",
+      precio: 250000,
+      destacado: true
+    },
+    {
+      id: 2,
+      titulo: "Frontend",
+      descripcion: "Desarrollo con React",
+      precio: 380000,
+      destacado: true
+    },
+    {
+      id: 3,
+      titulo: "UI kit",
+      descripcion: "Componentes reutilizables",
+      precio: 150000
+    },
+    {
+      id: 4,
+      titulo: "Consultorio",
+      descripcion: "Experiencia de usuario",
+      precio: 256000
+    },
+        {
+      id: 5,
+      titulo: "Reparacion",
+      descripcion: "Experiencia de usuario",
+      precio: 956480
+    },
+        {
+      id: 6,
+      titulo: "Inspeccion",
+      descripcion: "Experiencia de usuario",
+      precio: 300000
+    }
+  ]
 
   return (
-    <main className="dashboard">
-      <header className="dashboard-encabezado">
-        <h1>UI Design</h1>
-        <input
-          type="text"
-          className="dashboard-buscador"
-          placeholder="Buscar..."
-        />
-      </header>
+    <div className="dashboard">
 
-      <nav className="dashboard-tabs">
-        {filtros.map((filtro, index) => (
-          <span
-            key={filtro}
-            className={`dashboard-tab ${index === 2 ? 'dashboard-tab-activo' : ''}`}
-          >
-            {filtro}
-          </span>
+      <h1>{props.titulo}</h1>
+
+      <div className="tabs">
+        <span>Todos</span>
+        <span>Diseño</span>
+        <span>Desarrollo</span>
+      </div>
+
+      <div className="grid">
+
+        {servicios.map((servicio) => (
+          <Card
+            key={servicio.id}
+            titulo={servicio.titulo}
+            descripcion={servicio.descripcion}
+            precio={servicio.precio}
+            destacado={servicio.destacado}
+          />
         ))}
-      </nav>
 
-      <section className="dashboard-tarjetas-contenedor">
-        <div className="dashboard-tarjetas-header">
-          <h2>Servicios</h2>
-          <span className="dashboard-tarjetas-subtitulo">Catálogo disponible</span>
-        </div>
+      </div>
 
-        <div className="dashboard-grid">
-          {servicios.map((servicio) => (
-            <Card
-              key={servicio.id}
-              titulo={servicio.titulo}
-              descripcion={servicio.descripcion}
-              categoria={servicio.categoria}
-              imagen={servicio.imagen}
-              precio={servicio.precio}
-              estado={servicio.estado}
-              destacado={servicio.destacado}
-            />
-          ))}
-        </div>
-      </section>
-    </main>
+    </div>
   )
 }
 

@@ -1,27 +1,16 @@
-import './App.css'
-
-function Sidebar() {
-  const opciones = ['▲', '📊', '★', '▦', '○']
-
+function Sidebar(props) {
   return (
-    <aside className="sidebar">
-      <button className="sidebar-boton-menu">☰</button>
+    <div className="sidebar">
 
-      <nav>
-        <ul className="sidebar-lista">
-          {opciones.map((icono, index) => (
-            <li
-              key={index}
-              className={`sidebar-item ${index === 3 ? 'sidebar-item-activo' : ''}`}
-            >
-              {icono}
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <h3>{props.titulo}</h3>
 
-      <div className="sidebar-configuracion">⚙️</div>
-    </aside>
+      <div>☰</div>
+      <div>▲</div>
+      <div>★</div>
+      <div>▦</div>
+      <div>○</div>
+
+    </div>
   )
 }
 
