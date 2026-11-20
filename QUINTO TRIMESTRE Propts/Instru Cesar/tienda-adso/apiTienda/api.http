@@ -1,0 +1,41 @@
+### 1. Obtener todos los productos (GET)
+GET http://127.0.0.1:5000/api/v1/productos
+Accept: application/json
+
+### 2. Obtener un producto por ID (GET con parámetro)
+GET http://127.0.0.1:5000/api/v1/productos/1
+Accept: application/json
+
+### 3. Crear un nuevo producto (POST con cuerpo JSON)
+POST http://127.0.0.1:5000/api/v1/productos
+Content-Type: application/json
+
+{
+  "proCodigo": "CL123",
+  "proNombre": "Tennis",
+  "proPrecio": 28000,
+  "proCategoria": "Calzado"
+}
+
+### 4. Actualizar un producto (PUT)
+PUT http://127.0.0.1:5000/api/v1/productos/1
+Content-Type: application/json
+
+{
+  "proCodigo": "CL123",
+  "proNombre": "Tennis deportivo",
+  "proPrecio": 35000,
+  "proCategoria": "Calzado"
+}
+
+### 5. Eliminar un producto (DELETE)
+DELETE http://127.0.0.1:5000/api/v1/productos/1
+
+### 6. Prueba de error 404 (ID que no existe)
+GET http://127.0.0.1:5000/api/v1/productos/9999
+
+### 7. Prueba de error 400 (faltan campos)
+POST http://127.0.0.1:5000/api/v1/productos
+Content-Type: application/json
+
+{ "proCodigo": "X1" }

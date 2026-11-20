@@ -1,0 +1,124 @@
+:root {
+  --fondo: #eef1f5;
+  --superficie: #ffffff;
+  --tinta: #1b2a41;
+  --tinta-suave: #5b6b82;
+  --linea: #d5dbe5;
+  --acento: #2f5bff;
+  --acento-oscuro: #1f43cc;
+  --ok: #17734f;
+  --ok-fondo: #dff4ea;
+  --peligro: #c23140;
+  --peligro-fondo: #fbe3e5;
+  --etiqueta: #ffe08a;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: "Public Sans", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2 {
+  font-family: "Bricolage Grotesque", "Public Sans", system-ui, sans-serif;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.1; }
+h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; }
+
+.pagina { max-width: 1180px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+.cabecera { margin-bottom: 1.5rem; }
+.conteo { margin: .35rem 0 0; color: var(--tinta-suave); }
+
+.contenido { display: grid; grid-template-columns: 320px 1fr; gap: 1.5rem; align-items: start; }
+.lateral { position: sticky; top: 1rem; }
+.principal { display: grid; gap: 1.5rem; min-width: 0; }
+
+.panel {
+  background: var(--superficie);
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.formulario { display: grid; gap: .9rem; }
+.formulario h2 { margin-bottom: .1rem; }
+label { display: grid; gap: .3rem; font-size: .9rem; font-weight: 500; }
+input {
+  font: inherit;
+  padding: .55rem .7rem;
+  border: 1px solid var(--linea);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--tinta);
+  width: 100%;
+}
+input:focus-visible, button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--acento) 40%, transparent);
+  outline-offset: 1px;
+  border-color: var(--acento);
+}
+.acciones { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: .2rem; }
+
+button {
+  font: inherit; font-weight: 600; cursor: pointer;
+  padding: .5rem .9rem; border-radius: 6px; border: 1px solid transparent;
+}
+button:disabled { opacity: .6; cursor: progress; }
+.primario { background: var(--acento); color: #fff; }
+.primario:hover:not(:disabled) { background: var(--acento-oscuro); }
+.secundario { background: transparent; color: var(--tinta); border-color: var(--linea); }
+.secundario:hover { background: var(--fondo); }
+.peligro { background: transparent; color: var(--peligro); border-color: #efc2c7; }
+.peligro:hover { background: var(--peligro-fondo); }
+
+.fila-busqueda { display: flex; gap: .6rem; flex-wrap: wrap; }
+.fila-busqueda input { flex: 1 1 160px; width: auto; }
+.error-inline { color: var(--peligro); margin: .8rem 0 0; font-weight: 500; }
+.resultado {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem; margin: 1rem 0 0; padding-top: 1rem; border-top: 1px solid var(--linea);
+}
+.resultado dt { font-size: .8rem; color: var(--tinta-suave); }
+.resultado dd { margin: 0; font-weight: 600; }
+
+.tabla-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 560px; }
+th { text-align: left; font-size: .85rem; color: var(--tinta-suave); font-weight: 500; }
+th, td { padding: .65rem .6rem; border-bottom: 1px solid var(--linea); vertical-align: middle; }
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: #f7f9fc; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.celda-acciones { display: flex; gap: .4rem; }
+.celda-acciones button { padding: .3rem .65rem; font-size: .85rem; }
+
+/* El código de producto se ve como la etiqueta colgante de una prenda */
+.etiqueta {
+  display: inline-block;
+  background: var(--etiqueta);
+  border: 1px dashed #b88f1a;
+  border-radius: 3px 8px 8px 3px;
+  padding: .05rem .55rem;
+  font-weight: 600;
+  font-size: .85rem;
+}
+
+.vacio { color: var(--tinta-suave); margin: 0; }
+
+.aviso {
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: .7rem 1rem; border-radius: 8px; margin-bottom: 1.25rem; font-weight: 500;
+}
+.aviso.ok { background: var(--ok-fondo); color: var(--ok); }
+.aviso.error { background: var(--peligro-fondo); color: var(--peligro); }
+.aviso button { background: transparent; border: 0; color: inherit; font-size: 1.3rem; padding: 0 .3rem; line-height: 1; }
+
+@media (max-width: 860px) {
+  .contenido { grid-template-columns: 1fr; }
+  .lateral { position: static; }
+}
