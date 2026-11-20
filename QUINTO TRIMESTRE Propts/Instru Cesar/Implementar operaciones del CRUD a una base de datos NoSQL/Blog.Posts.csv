@@ -1,0 +1,21 @@
+_id,titulo,contenido,url,autor,fecha,categoria,estado,destacado
+6b0060f36533bf91ddc9262b,Aprendiendo Python desde cero,"Python es un lenguaje de programacion utilizado en desarrollo web, inteligencia artificial y analisis de datos.",https://blog.com/python,Cristian,2026-11-20T15:02:11.604Z,Lenguajes de Programación,,
+6b0060f36533bf91ddc9262c,Que es React,React es una biblioteca de JavaScript utilizada para crear interfaces de usuario.,https://blog.com/react,Cristian Yalanda,2026-11-20T15:02:11.702Z,Frameworks de Desarrollo,,
+6b0061686533bf91ddc9262d,Introduccion a Java,Java es un lenguaje de programacion orientado a objetos.,https://blog.com/java,Maria,2026-11-20T15:04:08.708Z,Lenguajes de Programación,,
+6b0061686533bf91ddc9262e,Que es Node.js,Node.js permite ejecutar JavaScript en el servidor.,https://blog.com/nodejs,Pedro,2026-11-20T15:04:08.708Z,Frameworks de Desarrollo,,
+6b0061686533bf91ddc9262f,Bases de datos NoSQL,Las bases de datos NoSQL permiten almacenar informacion de manera flexible.,https://blog.com/nosql,Laura,2026-11-20T15:04:08.708Z,Bases de Datos,Publicado,
+6b0061de6533bf91ddc92630,Introduccion a HTML,HTML permite estructurar el contenido de las paginas web.,https://blog.com/html,Cristian,2026-11-20T15:06:06.440Z,Lenguajes de Programación,,
+6b0061de6533bf91ddc92631,Introduccion a CSS,CSS permite dar estilos y disenos a las paginas web.,https://blog.com/css,Andres,2026-11-20T15:06:06.440Z,Lenguajes de Programación,,
+6b0061de6533bf91ddc92632,Aprendiendo PHP,PHP es un lenguaje utilizado principalmente para el desarrollo web del lado del servidor.,https://blog.com/php,Maria,2026-11-20T15:06:06.440Z,Lenguajes de Programación,,
+6b0061de6533bf91ddc92633,Que es Angular,Angular es un framework utilizado para desarrollar aplicaciones web.,https://blog.com/angular,Pedro,2026-11-20T15:06:06.440Z,Frameworks de Desarrollo,,
+6b0061de6533bf91ddc92634,Introduccion a Vue,Vue es un framework progresivo de JavaScript para crear interfaces.,https://blog.com/vue,Laura,2026-11-20T15:06:06.440Z,Frameworks de Desarrollo,,
+6b0061de6533bf91ddc92635,Aprendiendo Express,Express facilita la creacion de servidores y APIs con Node.js.,https://blog.com/express,Cristian,2026-11-20T15:06:06.440Z,Frameworks de Desarrollo,,
+6b0061de6533bf91ddc92636,Que es Laravel,Laravel es un framework de PHP para desarrollar aplicaciones web.,https://blog.com/laravel,Andres,2026-11-20T15:06:06.440Z,Frameworks de Desarrollo,,
+6b0061de6533bf91ddc92637,Inteligencia Artificial en la educacion,La inteligencia artificial permite crear herramientas que apoyan el aprendizaje.,https://blog.com/ia-educacion,Maria,2026-11-20T15:06:06.440Z,Inteligencia Artificial,,true
+6b0061de6533bf91ddc92638,Que es Machine Learning,Machine Learning permite que los sistemas aprendan a partir de datos.,https://blog.com/machine-learning,Pedro,2026-11-20T15:06:06.440Z,Inteligencia Artificial,,true
+6b0061de6533bf91ddc92639,Aplicaciones de ChatGPT,"ChatGPT puede ayudar a generar textos, resolver dudas y apoyar tareas de programacion.",https://blog.com/chatgpt,Laura,2026-11-20T15:06:06.440Z,Inteligencia Artificial,,true
+6b0061de6533bf91ddc9263a,Que es MongoDB,MongoDB es una base de datos NoSQL orientada a documentos.,https://blog.com/mongodb,Cristian,2026-11-20T15:06:06.440Z,Bases de Datos,Publicado,
+6b0061de6533bf91ddc9263b,Introduccion a MySQL,MySQL es un sistema de gestion de bases de datos relacionales.,https://blog.com/mysql,Andres,2026-11-20T15:06:06.440Z,Bases de Datos,Publicado,
+6b0061de6533bf91ddc9263c,Diferencias entre SQL y NoSQL,SQL utiliza estructuras relacionales mientras NoSQL ofrece diferentes modelos de almacenamiento.,https://blog.com/sql-nosql,Maria,2026-11-20T15:06:06.440Z,Bases de Datos,Publicado,
+6b0061de6533bf91ddc9263d,Que es PostgreSQL,PostgreSQL es un sistema de gestion de bases de datos relacional de codigo abierto.,https://blog.com/postgresql,Pedro,2026-11-20T15:06:06.440Z,Bases de Datos,Publicado,
+6b0061de6533bf91ddc9263e,Seguridad en bases de datos,La seguridad permite proteger la informacion almacenada contra accesos no autorizados.,https://blog.com/seguridad,Laura,2026-11-20T15:06:06.440Z,Bases de Datos,Publicado,
