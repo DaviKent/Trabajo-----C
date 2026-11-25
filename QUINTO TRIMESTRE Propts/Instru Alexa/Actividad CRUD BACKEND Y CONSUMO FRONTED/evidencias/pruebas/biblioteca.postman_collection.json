@@ -1,0 +1,783 @@
+{
+  "info": {
+    "name": "Biblioteca API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "usuarios",
+      "item": [
+        {
+          "name": "Registrar usuarios (POST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Ana Torres\",\n  \"correo\": \"ana@correo.com\",\n  \"telefono\": \"3150000000\",\n  \"estado\": \"activo\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/usuarios",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "usuarios"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Listar usuarios (GET)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/usuarios",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "usuarios"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener usuarios por id (GET)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/usuarios/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "usuarios",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar usuarios (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Ana Torres Díaz\",\n  \"correo\": \"ana@correo.com\",\n  \"telefono\": \"3150000000\",\n  \"estado\": \"activo\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/usuarios/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "usuarios",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Eliminar usuarios (DELETE)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/usuarios/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "usuarios",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "usuarios inexistente (404)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/usuarios/99999",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "usuarios",
+                "99999"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "autores",
+      "item": [
+        {
+          "name": "Registrar autores (POST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Mario Benedetti\",\n  \"nacionalidad\": \"Uruguaya\",\n  \"fecha_nacimiento\": \"1920-09-14\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/autores",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "autores"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Listar autores (GET)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/autores",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "autores"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener autores por id (GET)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/autores/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "autores",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar autores (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Mario Benedetti\",\n  \"nacionalidad\": \"Uruguaya\",\n  \"fecha_nacimiento\": \"1920-09-14\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/autores/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "autores",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Eliminar autores (DELETE)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/autores/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "autores",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "autores inexistente (404)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/autores/99999",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "autores",
+                "99999"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "categorias",
+      "item": [
+        {
+          "name": "Registrar categorias (POST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Poesía\",\n  \"descripcion\": \"Obras en verso\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/categorias",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "categorias"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Listar categorias (GET)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/categorias",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "categorias"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener categorias por id (GET)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/categorias/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "categorias",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar categorias (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Poesía\",\n  \"descripcion\": \"Obras poéticas en verso\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/categorias/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "categorias",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Eliminar categorias (DELETE)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/categorias/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "categorias",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "categorias inexistente (404)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/categorias/99999",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "categorias",
+                "99999"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "libros",
+      "item": [
+        {
+          "name": "Registrar libros (POST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"La tregua\",\n  \"isbn\": \"978-0000000001\",\n  \"anio_publicacion\": 1960,\n  \"cantidad\": 3,\n  \"autor_id\": 1,\n  \"categoria_id\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/libros",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "libros"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Listar libros (GET)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/libros",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "libros"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener libros por id (GET)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/libros/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "libros",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar libros (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"La tregua (ed. revisada)\",\n  \"isbn\": \"978-0000000001\",\n  \"anio_publicacion\": 1960,\n  \"cantidad\": 4,\n  \"autor_id\": 1,\n  \"categoria_id\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/libros/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "libros",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Eliminar libros (DELETE)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/libros/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "libros",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "libros inexistente (404)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/libros/99999",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "libros",
+                "99999"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "prestamos",
+      "item": [
+        {
+          "name": "Registrar prestamos (POST)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario_id\": 1,\n  \"libro_id\": 1,\n  \"fecha_prestamo\": \"2026-11-24\",\n  \"fecha_devolucion\": null,\n  \"estado\": \"activo\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/prestamos",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "prestamos"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Listar prestamos (GET)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/prestamos",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "prestamos"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener prestamos por id (GET)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/prestamos/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "prestamos",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar prestamos (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario_id\": 1,\n  \"libro_id\": 1,\n  \"fecha_prestamo\": \"2026-11-24\",\n  \"fecha_devolucion\": \"2026-12-01\",\n  \"estado\": \"devuelto\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/prestamos/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "prestamos",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Eliminar prestamos (DELETE)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/prestamos/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "prestamos",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "prestamos inexistente (404)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/prestamos/99999",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "prestamos",
+                "99999"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
